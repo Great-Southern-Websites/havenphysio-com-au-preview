@@ -1,15 +1,94 @@
 ---
-title: "Home"
-description: "BUILDER: one-sentence description of the business for search engines."
-image: logo.png
+title: "Haven Sports & Family Physiotherapy"
+description: "One-on-one, hands-on physiotherapy with Phil Wulff at 2 Lionel Parade, Springfield on the Central Coast. HICAPS rebates onsite and online booking."
+image: haven-physio.png
 layout: default
 ---
-<!-- BUILDER: hero, then the sections that mirror the original home page. -->
+{@io.quarkiverse.roq.frontmatter.runtime.model.Page page}
+{@io.quarkiverse.roq.frontmatter.runtime.model.Site site}
 <section class="hero">
-  <div class="container">
-    <p class="eyebrow">Welcome</p>
-    <h1>Haven Sports &amp; Family Physiotherapy</h1>
-    <p class="lead">Replace this with the business's own words.</p>
-    <p class="hero-actions"><a class="btn btn-primary" href="{=site.url('contact')}">Contact us</a></p>
+  <div class="container hero-grid">
+    <div>
+      <p class="label">Physiotherapy on the Central Coast</p>
+      <h1>Welcome to Haven Physio</h1>
+      <p class="lead">Physiotherapist Phil Wulff established Haven Sports &amp; Family Physiotherapy to serve the Central Coast with high quality, individualised physiotherapy care.</p>
+      <p class="actions">
+        <a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book online now</a>
+        <a class="btn btn-outline" href="tel:+61243852616">Call (02) 4385 2616</a>
+      </p>
+    </div>
+    <aside class="notice" aria-label="New premises">
+      <p class="label">Now open at new premises</p>
+      <p class="notice-title">2 Lionel Parade, Springfield NSW 2250</p>
+      <p>Our Wamberal rooms at 73 Dover Road are closed. We relocated to Springfield on 16 March 2026 and have kept the same phone number and email.</p>
+      <p>Open Monday to Friday, by appointment only.</p>
+      <p><a href="{=site.url('location-new-premises')}">Map, directions and contact details</a></p>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col narrow-left">
+    <div>
+      <p class="label">What to expect</p>
+      <h2>Care that is one-on-one and hands-on</h2>
+      <p class="measure">Every appointment is with Phil, in person, and built around your condition and the way you move.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>One-on-one appointments</strong><span>Your whole session is with the physiotherapist.</span></li>
+      <li><strong>Hands-on and informative approach</strong><span>Treatment on the table, and an explanation of what is going on and what to do about it.</span></li>
+      <li><strong>Online bookings</strong><span>Choose a day and time that suits you, any time, through our booking page.</span></li>
+      <li><strong>HICAPS and private health rebates onsite</strong><span>Claim your private health rebate on the spot. EFTPOS is available.</span></li>
+      <li><strong>HCF More for Muscles</strong><span>HCF members can use the More for Muscles program with us.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col narrow-left">
+    <div>
+      <p class="label">Where we are</p>
+      <h2>Easy access from across the Coast</h2>
+      <p><a href="{=site.url('location-new-premises')}">Map and directions</a></p>
+    </div>
+    <div>
+      <p class="suburbs">Springfield, Erina, East Gosford, Erina Heights, Gosford, Green Point, Wamberal, Terrigal, North Avoca, Matcham and Holgate.</p>
+      <p class="muted">Open Monday to Friday, by appointment only. Phone <a href="tel:+61243852616">(02) 4385 2616</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="book">
+  <div class="container two-col narrow-left">
+    <div>
+      <p class="label">Online bookings available</p>
+      <h2>Make an appointment with Phil in four steps</h2>
+      <p class="measure">Go to our <a href="https://havenphysio.cliniko.com/bookings">online booking page</a>, then:</p>
+      <p class="actions"><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book online now</a></p>
+    </div>
+    <div>
+      <ol class="steps">
+        <li><div><strong>Choose an appointment</strong><span>Pick the appointment type from the list.</span></div></li>
+        <li><div><strong>Select a day and time</strong><span>Choose a day and time that suits you.</span></div></li>
+        <li><div><strong>Enter your details</strong><span>Fill in your details and accept the terms.</span></div></li>
+        <li><div><strong>Booked</strong><span>A confirmation email is sent straight away.</span></div></li>
+      </ol>
+      <ul class="booking-notes">
+        <li><strong>Reminders:</strong> SMS and email messages are sent before your appointment.</li>
+        <li><strong>Cancellations and changes:</strong> please <a href="tel:+61243852616">call</a> or <a href="mailto:info@havenphysio.com.au">email</a> us.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container home-person">
+    <a href="{=site.url('about-us')}"><img src="{=site.url('images/phil-wulff-1000.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w, {=site.url('images/phil-wulff-1000.webp')} 1000w" sizes="auto, (min-width: 60rem) 50vw, 100vw" alt="Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" width="1000" height="1506" loading="lazy"></a>
+    <div>
+      <p class="label">Your physiotherapist</p>
+      <h2>Phil Wulff, Master of Physiotherapy Studies</h2>
+      <p class="measure">Phil qualified as a physiotherapist from the University of Queensland in 2005 and has worked in sporting and clinical settings in Brisbane and on the Central Coast. He has a special interest in sporting injuries, back and neck pain and soft tissue therapy.</p>
+      <p><a href="{=site.url('about-us')}">Meet the people at Haven Physio</a></p>
+    </div>
   </div>
 </section>
