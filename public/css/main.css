@@ -201,8 +201,10 @@ ul, ol { margin: 0 0 1rem; }
 .brand img { height: 3.25rem; width: auto; }
 @media (min-width: 900px) { .brand img { height: 3.75rem; } .bar { min-height: 5rem; } }
 /* Two logos, one per theme: the grey wordmark vanishes on navy, so logo-dark.png
-   is the same file with the grey lifted to white. Swapped here, not by <picture>,
-   because the theme toggle sets data-theme by hand. */
+   is the same file with the grey lifted to white. Both are transparent, so the
+   header colour shows through and the mark sits on the page rather than in a
+   box. Swapped here, not by <picture>, because the theme toggle sets data-theme
+   by hand. */
 .logo-dark { display: none; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .logo-light { display: none; }
