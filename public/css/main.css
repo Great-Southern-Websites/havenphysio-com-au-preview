@@ -345,11 +345,14 @@ ul, ol { margin: 0 0 1rem; }
 /* ---- people -------------------------------------------------------------- */
 .person { display: grid; gap: 1.75rem; padding-block: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
 .person:first-of-type { border-top: 0; padding-top: 0; }
-.person-photo { background: var(--bg-alt); border-radius: var(--radius); padding: 1rem; }
-.person-photo img { border-radius: var(--radius); width: 100%; }
+/* The portrait sits in the same soft neutral field as before, held to a
+   modest width so it balances the text beside it rather than dominating the
+   page, and with the home page's gently rounded corners. */
+.person-photo { background: var(--bg-alt); border-radius: calc(var(--radius) * 2); padding: 1rem; margin: 0; max-width: min(54vw, 14rem); }
+.person-photo img { border-radius: calc(var(--radius) * 2); width: 100%; }
 .person h2 { margin-bottom: 0.2rem; }
 .person .role { font-family: var(--font-display); font-weight: 600; color: var(--fg-muted); margin-bottom: 1.25rem; }
-@media (min-width: 720px) { .person { grid-template-columns: 16rem 1fr; gap: 3rem; } .person-photo { align-self: start; } }
+@media (min-width: 720px) { .person { grid-template-columns: 13rem 1fr; gap: 3rem; } .person-photo { align-self: start; max-width: none; } }
 /* The thinking behind Haven: Phil's photograph beside his introduction.
    The portrait keeps its own proportions and its own background, held to a
    modest width on a phone so the orange eyebrow, the heading and the first
@@ -400,6 +403,17 @@ ul, ol { margin: 0 0 1rem; }
 .about-note h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
 .about-note p:last-child { margin-bottom: 0; }
 @media (min-width: 900px) { .about-note h2 { margin-bottom: 0; } }
+
+/* The three points under the opening: columns, each under a hairline, with a
+   line icon in the readable orange above the heading. Nothing but the rule
+   and the space separates them, and they keep their rules when they stack. */
+.about-opening + .section { border-top: 0; padding-top: clamp(2.25rem, 4vw, 3.25rem); }
+.pillars { display: grid; gap: 2.25rem; }
+@media (min-width: 740px) { .pillars { grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3.5vw, 3rem); } }
+.pillar { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.pillar-icon { width: 2.25rem; height: 2.25rem; margin-bottom: 1.15rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.section .pillar h2 { font-size: 1.2rem; letter-spacing: 0; margin-bottom: 0.55rem; }
+.pillar p { color: var(--fg-muted); margin-bottom: 0; }
 
 /* ---- services: content with an aside ------------------------------------ */
 .with-aside { display: grid; gap: 2.5rem; align-items: start; }
