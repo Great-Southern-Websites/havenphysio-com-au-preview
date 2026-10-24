@@ -265,11 +265,11 @@ ul, ol { margin: 0 0 1rem; }
    The owner asked for the home page headings and links in Haven's dark grey
    and the eyebrow above the headline in Haven's orange. The dark theme keeps
    its own tokens so nothing drops below AA contrast on a dark page. */
-.home { --home-ink: #4A4A4A; --home-ink-muted: #6E6E6E; --home-orange: #F28C00; }
+.home { --home-ink: #4A4A4A; --home-ink-muted: #6E6E6E; --home-orange: #F28C00; --home-line: #BFBFBF; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); }
+  :root:not([data-theme="light"]) .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); --home-line: var(--line); }
 }
-:root[data-theme="dark"] .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); }
+:root[data-theme="dark"] .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); --home-line: var(--line); }
 .home { color: var(--home-ink); }
 .home h1, .home h2, .home h3 { color: var(--home-ink); }
 .home .label, .home .lead, .home .muted { color: var(--home-ink-muted); }
@@ -282,6 +282,34 @@ ul, ol { margin: 0 0 1rem; }
 .headline { font-size: clamp(2.1rem, 4vw, 2.9rem); }
 .headline-line { display: block; }
 .home .headline-accent { color: var(--home-orange); }
+
+/* ---- the Haven approach: three cards that open ---------------------------
+   Plain <details>, so a tap, a click and the keyboard all work and the text is
+   there without JavaScript. The numerals borrow the booking steps' big orange
+   figures, and the hairline across the top of each card fills a third further
+   along at each step, so the row reads Diagnosis to Treatment to Outcomes. */
+.approach-title { margin-bottom: 1.75rem; }
+.approach-grid { display: grid; gap: 1rem; counter-reset: approach; }
+@media (min-width: 900px) { .approach-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; } }
+
+.approach-card { background: var(--bg-card); border: 1px solid var(--home-line); border-radius: var(--radius); background-image: linear-gradient(to right, var(--home-orange) 0 33.33%, var(--home-line) 33.33%); background-repeat: no-repeat; background-size: 100% 3px; background-position: left top; }
+.approach-grid .approach-card:nth-child(2) { background-image: linear-gradient(to right, var(--home-orange) 0 66.66%, var(--home-line) 66.66%); }
+.approach-grid .approach-card:nth-child(3) { background-image: linear-gradient(to right, var(--home-orange) 0 100%); }
+.approach-card[open] { border-color: var(--home-orange); }
+
+.approach-card summary { display: grid; grid-template-columns: 2.6rem 1fr 1.5rem; gap: 0.35rem 1rem; align-items: start; padding: 1.5rem 1.35rem; cursor: pointer; list-style: none; }
+.approach-card summary::-webkit-details-marker { display: none; }
+.approach-card summary::before { counter-increment: approach; content: counter(approach); grid-column: 1; grid-row: 1 / span 2; font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 0.9; color: var(--home-orange); }
+.approach-name { grid-column: 2; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.2; color: var(--home-ink); }
+.approach-summary { grid-column: 2 / -1; color: var(--home-ink-muted); }
+.approach-arrow { grid-column: 3; grid-row: 1; justify-self: end; color: var(--home-orange); transition: transform 0.15s; }
+.approach-card[open] .approach-arrow { transform: rotate(180deg); }
+.approach-card summary:hover .approach-name { color: var(--home-orange); }
+.approach-detail { margin: 0 1.35rem; padding: 1.1rem 0 1.5rem; border-top: 1px solid var(--home-line); color: var(--home-ink); }
+@media (min-width: 900px) {
+  .approach-card summary { padding: 1.75rem 1.5rem; }
+  .approach-detail { margin-inline: 1.5rem; padding-bottom: 1.75rem; }
+}
 
 /* ---- notice (relocation, new premises) ----------------------------------- */
 .notice { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); background: var(--bg-card); padding: 1.5rem 1.5rem 1.25rem; }

@@ -25,6 +25,54 @@ layout: default
 </section>
 
 <section class="section">
+  <div class="container">
+    <h2 class="approach-title">The Haven Approach</h2>
+    <div class="approach-grid">
+      <details class="approach-card" name="haven-approach">
+        <summary>
+          <span class="approach-name">Precision Diagnosis</span>
+          <span class="approach-summary">Understand the problem before choosing the treatment.</span>
+          <svg class="approach-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <p class="approach-detail">We take time to understand your symptoms, assess how you move and identify the likely causes of your pain or restriction. Detailed clinical assessment and reasoning help guide the most appropriate treatment strategy.</p>
+      </details>
+      <details class="approach-card" name="haven-approach">
+        <summary>
+          <span class="approach-name">Targeted Treatment</span>
+          <span class="approach-summary">The right treatment, selected for the right reasons.</span>
+          <svg class="approach-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <p class="approach-detail">Treatment is selected according to your clinical findings and individual needs. This may include skilled hands-on therapy, specialised treatment technologies and rehabilitation strategies, rather than a routine or one-size-fits-all approach.</p>
+      </details>
+      <details class="approach-card" name="haven-approach">
+        <summary>
+          <span class="approach-name">Better Outcomes</span>
+          <span class="approach-summary">Meaningful improvement in how you feel, move and live.</span>
+          <svg class="approach-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <p class="approach-detail">Our focus is on relieving pain, restoring movement and improving your ability to work, exercise and enjoy everyday life. Progress is reviewed and treatment adapted to support meaningful, lasting improvements.</p>
+      </details>
+    </div>
+  </div>
+</section>
+{! Browsers without the exclusive-accordion "name" attribute on <details> get the same
+   one-card-at-a-time behaviour from here. Everywhere else the browser does it. !}
+<script>{|
+  (function () {
+    if ('name' in document.createElement('details')) return;
+    var cards = document.querySelectorAll('.approach-card');
+    Array.prototype.forEach.call(cards, function (card) {
+      card.addEventListener('toggle', function () {
+        if (!card.open) return;
+        Array.prototype.forEach.call(cards, function (other) {
+          if (other !== card) other.open = false;
+        });
+      });
+    });
+  })();
+|}</script>
+
+<section class="section">
   <div class="container home-person">
     <a href="{=site.url('about-us')}"><img src="{=site.url('images/phil-wulff-1000.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w, {=site.url('images/phil-wulff-1000.webp')} 1000w" sizes="auto, (min-width: 60rem) 50vw, 100vw" alt="Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" width="1000" height="1506" loading="lazy"></a>
     <div>
