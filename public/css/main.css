@@ -252,6 +252,32 @@ ul, ol { margin: 0 0 1rem; }
 .hero h1 { max-width: 20ch; }
 .hero .lead { margin-bottom: 0; }
 .hero .lead + .lead { margin-top: 1rem; }
+/* Single column hero: the home page introduction, with nothing beside it.
+   The headline and the leads carry their own measure, so the block keeps the
+   same left edge as every other section. */
+.hero-intro .lead { max-width: 34rem; }
+
+/* ---- home page ink ------------------------------------------------------
+   The owner asked for the home page headings and links in Haven's dark grey
+   and the eyebrow above the headline in Haven's orange. The dark theme keeps
+   its own tokens so nothing drops below AA contrast on a dark page. */
+.home { --home-ink: #4A4A4A; --home-ink-muted: #6E6E6E; --home-orange: #F28C00; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); }
+}
+:root[data-theme="dark"] .home { --home-ink: var(--fg); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent); }
+.home { color: var(--home-ink); }
+.home h1, .home h2, .home h3 { color: var(--home-ink); }
+.home .label, .home .lead, .home .muted { color: var(--home-ink-muted); }
+.home a:not(.btn) { color: var(--home-ink); }
+.home .btn-outline { border-color: var(--home-ink); color: var(--home-ink); }
+.home .btn-outline:hover { background: var(--home-ink); border-color: var(--home-ink); color: var(--bg); }
+.home .label-accent { color: var(--home-orange); }
+
+/* The headline: three phrases, each on its own line where the width allows. */
+.headline { font-size: clamp(2.1rem, 4vw, 2.9rem); }
+.headline-line { display: block; }
+.home .headline-accent { color: var(--home-orange); }
 
 /* ---- notice (relocation, new premises) ----------------------------------- */
 .notice { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); background: var(--bg-card); padding: 1.5rem 1.5rem 1.25rem; }
@@ -262,15 +288,9 @@ ul, ol { margin: 0 0 1rem; }
 .notice-banner { margin-top: 1.5rem; }
 .notice .actions { margin-top: 1rem; }
 
-/* ---- fact rows (what to expect) ----------------------------------------- */
-.facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.facts li { padding: 1rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.25rem 1.5rem; }
-.facts strong { font-family: var(--font-display); font-weight: 700; color: var(--primary); font-size: 1.05rem; }
-.facts span { color: var(--fg-muted); }
-@media (min-width: 720px) { .facts li { grid-template-columns: 16rem 1fr; align-items: baseline; } }
+/* ---- two column split ---------------------------------------------------- */
 .two-col { display: grid; gap: 2.5rem; align-items: start; }
 @media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; gap: 4rem; } .two-col.narrow-left { grid-template-columns: 0.8fr 1.2fr; } }
-.suburbs { font-size: 1.1rem; line-height: 1.6; }
 
 /* ---- booking steps: the memorable element -------------------------------- */
 .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; border-top: 1px solid var(--line); }
