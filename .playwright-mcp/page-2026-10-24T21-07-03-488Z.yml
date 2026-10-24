@@ -1,0 +1,177 @@
+- generic [active] [ref=f4e1]:
+  - link "Skip to content" [ref=f4e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f4e3]:
+    - generic [ref=f4e4]:
+      - link [ref=f4e5] [cursor=pointer]:
+        - /url: /
+        - img "Haven Sports & Family Physiotherapy" [ref=f4e6]
+      - checkbox "Toggle menu"
+      - navigation "Main navigation" [ref=f4e7]:
+        - list [ref=f4e8]:
+          - listitem [ref=f4e9]:
+            - link "Home" [ref=f4e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f4e11]:
+            - link "About Haven" [ref=f4e12] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=f4e13]:
+            - link "What We Treat" [ref=f4e14] [cursor=pointer]:
+              - /url: /what-we-treat
+          - listitem [ref=f4e15]:
+            - link "Treatments & Technology" [ref=f4e16] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=f4e17]:
+            - link "Fees & Appointments" [ref=f4e18] [cursor=pointer]:
+              - /url: /fees-and-appointments
+          - listitem [ref=f4e19]:
+            - link "For Referrers" [ref=f4e20] [cursor=pointer]:
+              - /url: /for-referrers
+          - listitem [ref=f4e21]:
+            - link "Contact & Location" [ref=f4e22] [cursor=pointer]:
+              - /url: /location-new-premises
+      - link "Book online" [ref=f4e23] [cursor=pointer]:
+        - /url: https://havenphysio.cliniko.com/bookings
+  - main [ref=f4e24]:
+    - generic [ref=f4e26]:
+      - paragraph [ref=f4e27]: Contact
+      - heading "Contact & Location" [level=1] [ref=f4e28]
+      - paragraph [ref=f4e29]: We have kept the same phone and email contacts. Bookings are available by phone or online.
+      - generic [ref=f4e30]:
+        - paragraph [ref=f4e31]: New location
+        - paragraph [ref=f4e32]: 2 Lionel Parade, Springfield NSW 2250
+        - paragraph [ref=f4e33]: "Please note: we relocated from 73 Dover Road, Wamberal on 16 March 2026. The Wamberal location is closed."
+    - generic [ref=f4e35]:
+      - generic [ref=f4e36]:
+        - heading "Contact us" [level=2] [ref=f4e37]
+        - list [ref=f4e38]:
+          - listitem [ref=f4e39]:
+            - generic [ref=f4e40]: Phone
+            - link "(02) 4385 2616" [ref=f4e42] [cursor=pointer]:
+              - /url: tel:+61243852616
+          - listitem [ref=f4e43]:
+            - generic [ref=f4e44]: Email
+            - link "info@havenphysio.com.au" [ref=f4e46] [cursor=pointer]:
+              - /url: mailto:info@havenphysio.com.au
+          - listitem [ref=f4e47]:
+            - generic [ref=f4e48]: Address
+            - link "2 Lionel Parade, Springfield NSW 2250" [ref=f4e50] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=2+Lionel+Parade+Springfield+NSW+2250
+          - listitem [ref=f4e51]:
+            - generic [ref=f4e52]: Bookings
+            - generic [ref=f4e53]:
+              - text: By phone or
+              - link "online" [ref=f4e54] [cursor=pointer]:
+                - /url: https://havenphysio.cliniko.com/bookings
+        - table [ref=f4e55]:
+          - caption [ref=f4e56]: Opening hours
+          - rowgroup [ref=f4e57]:
+            - row [ref=f4e58]:
+              - rowheader "Monday to Friday" [ref=f4e59]
+              - cell "By appointment only" [ref=f4e60]
+            - row [ref=f4e61]:
+              - rowheader "Saturday and Sunday" [ref=f4e62]
+              - cell "Closed" [ref=f4e63]
+        - paragraph [ref=f4e64]:
+          - link "Book online now" [ref=f4e65] [cursor=pointer]:
+            - /url: https://havenphysio.cliniko.com/bookings
+          - link "Email us" [ref=f4e66] [cursor=pointer]:
+            - /url: mailto:info@havenphysio.com.au
+      - generic [ref=f4e67]:
+        - heading "Map and directions" [level=2] [ref=f4e68]
+        - iframe [ref=f4e70]
+        - paragraph [ref=f4e71]:
+          - text: Easy access from Springfield, Erina, East Gosford, Erina Heights, Gosford, Green Point, Wamberal, Terrigal, North Avoca, Matcham and Holgate.
+          - link "Get directions" [ref=f4e72] [cursor=pointer]:
+            - /url: https://www.google.com/maps/dir/?api=1&destination=2+Lionel+Parade+Springfield+NSW+2250
+          - text: .
+    - generic [ref=f4e74]:
+      - generic [ref=f4e75]:
+        - paragraph [ref=f4e76]: Book online
+        - heading "Make an appointment in four steps" [level=2] [ref=f4e77]
+        - paragraph [ref=f4e78]:
+          - text: Go to our
+          - link "online booking page" [ref=f4e79] [cursor=pointer]:
+            - /url: https://havenphysio.cliniko.com/bookings
+          - text: ", then:"
+      - generic [ref=f4e80]:
+        - list [ref=f4e81]:
+          - listitem [ref=f4e82]:
+            - generic [ref=f4e83]:
+              - strong [ref=f4e84]: Choose an appointment
+              - text: Pick the appointment type from the list.
+          - listitem [ref=f4e85]:
+            - generic [ref=f4e86]:
+              - strong [ref=f4e87]: Select a day and time
+              - text: Choose a day and time that suits you.
+          - listitem [ref=f4e88]:
+            - generic [ref=f4e89]:
+              - strong [ref=f4e90]: Enter your details
+              - text: Fill in your details and accept the terms.
+          - listitem [ref=f4e91]:
+            - generic [ref=f4e92]:
+              - strong [ref=f4e93]: Booked
+              - text: A confirmation email is sent straight away, with SMS and email reminders before your appointment.
+        - paragraph [ref=f4e94]:
+          - text: For cancellations or changes, please
+          - link "call" [ref=f4e95] [cursor=pointer]:
+            - /url: tel:+61243852616
+          - text: or
+          - link "email" [ref=f4e96] [cursor=pointer]:
+            - /url: mailto:info@havenphysio.com.au
+          - text: us.
+  - contentinfo [ref=f4e97]:
+    - generic [ref=f4e98]:
+      - generic [ref=f4e99]:
+        - paragraph [ref=f4e100]: Haven Sports & Family Physiotherapy
+        - paragraph [ref=f4e101]:
+          - link "2 Lionel Parade, Springfield NSW 2250" [ref=f4e102] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=2+Lionel+Parade+Springfield+NSW+2250
+        - paragraph [ref=f4e103]:
+          - text: Phone
+          - link "(02) 4385 2616" [ref=f4e104] [cursor=pointer]:
+            - /url: tel:+61243852616
+          - text: Email
+          - link "info@havenphysio.com.au" [ref=f4e105] [cursor=pointer]:
+            - /url: mailto:info@havenphysio.com.au
+        - paragraph [ref=f4e106]: Open Monday to Friday, by appointment only.
+      - generic [ref=f4e107]:
+        - paragraph [ref=f4e108]: Pages
+        - list [ref=f4e109]:
+          - listitem [ref=f4e110]:
+            - link "Home" [ref=f4e111] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f4e112]:
+            - link "About Haven" [ref=f4e113] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=f4e114]:
+            - link "What We Treat" [ref=f4e115] [cursor=pointer]:
+              - /url: /what-we-treat
+          - listitem [ref=f4e116]:
+            - link "Treatments & Technology" [ref=f4e117] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=f4e118]:
+            - link "Fees & Appointments" [ref=f4e119] [cursor=pointer]:
+              - /url: /fees-and-appointments
+          - listitem [ref=f4e120]:
+            - link "For Referrers" [ref=f4e121] [cursor=pointer]:
+              - /url: /for-referrers
+          - listitem [ref=f4e122]:
+            - link "Contact & Location" [ref=f4e123] [cursor=pointer]:
+              - /url: /location-new-premises
+      - generic [ref=f4e124]:
+        - paragraph [ref=f4e125]: Bookings
+        - list [ref=f4e126]:
+          - listitem [ref=f4e127]:
+            - link "Book online" [ref=f4e128] [cursor=pointer]:
+              - /url: https://havenphysio.cliniko.com/bookings
+          - listitem [ref=f4e129]:
+            - link "Call (02) 4385 2616" [ref=f4e130] [cursor=pointer]:
+              - /url: tel:+61243852616
+          - listitem [ref=f4e131]:
+            - link "Follow us on Facebook" [ref=f4e132] [cursor=pointer]:
+              - /url: https://www.facebook.com/HavenPhysio
+    - generic [ref=f4e133]:
+      - paragraph [ref=f4e134]: © Haven Sports & Family Physiotherapy. All rights reserved.
+      - paragraph [ref=f4e135]: Physiotherapist Phil Wulff, Springfield, Central Coast NSW
+  - button "Switch to dark theme" [ref=f4e136] [cursor=pointer]

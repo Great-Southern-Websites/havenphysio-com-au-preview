@@ -1,0 +1,135 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Haven Sports & Family Physiotherapy" [ref=e6]
+      - checkbox "Toggle menu"
+      - navigation "Main navigation" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "About Haven" [ref=e12] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e13]:
+            - link "What We Treat" [ref=e14] [cursor=pointer]:
+              - /url: /what-we-treat
+          - listitem [ref=e15]:
+            - link "Treatments & Technology" [ref=e16] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e17]:
+            - link "Fees & Appointments" [ref=e18] [cursor=pointer]:
+              - /url: /fees-and-appointments
+          - listitem [ref=e19]:
+            - link "For Referrers" [ref=e20] [cursor=pointer]:
+              - /url: /for-referrers
+          - listitem [ref=e21]:
+            - link "Contact & Location" [ref=e22] [cursor=pointer]:
+              - /url: /location-new-premises
+      - link "Book online" [ref=e23] [cursor=pointer]:
+        - /url: https://havenphysio.cliniko.com/bookings
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: Premium physiotherapy on the Central Coast
+        - heading "Precision Diagnosis. Targeted Treatment. Better Outcomes." [level=1] [ref=e29]:
+          - generic [ref=e30]: Precision Diagnosis.
+          - generic [ref=e31]: Targeted Treatment.
+          - generic [ref=e32]: Better Outcomes.
+        - paragraph [ref=e33]: Premium one-on-one physiotherapy for people who want answers, not guesswork.
+        - paragraph [ref=e34]: Helping relieve pain, restore movement and return to life sooner through expert assessment and targeted treatment.
+        - paragraph [ref=e35]:
+          - link "Book online now" [ref=e36] [cursor=pointer]:
+            - /url: https://havenphysio.cliniko.com/bookings
+          - link "Call (02) 4385 2616" [ref=e37] [cursor=pointer]:
+            - /url: tel:+61243852616
+      - generic [ref=e39]:
+        - heading "The Haven Approach" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - group [ref=e42]:
+            - generic "Precision Diagnosis Understand the problem before choosing the treatment." [ref=e43] [cursor=pointer]:
+              - generic [ref=e44]: Precision Diagnosis
+              - generic [ref=e45]: Understand the problem before choosing the treatment.
+          - group [ref=e48]:
+            - generic "Targeted Treatment The right treatment, selected for the right reasons." [ref=e49] [cursor=pointer]:
+              - generic [ref=e50]: Targeted Treatment
+              - generic [ref=e51]: The right treatment, selected for the right reasons.
+          - group [ref=e54]:
+            - generic "Better Outcomes Meaningful improvement in how you feel, move and live." [ref=e55] [cursor=pointer]:
+              - generic [ref=e56]: Better Outcomes
+              - generic [ref=e57]: Meaningful improvement in how you feel, move and live.
+      - generic [ref=e61]:
+        - link [ref=e63] [cursor=pointer]:
+          - /url: /about-us
+          - img "Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" [ref=e64]
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: The thinking behind Haven
+          - heading "Looking beyond the obvious." [level=2] [ref=e67]
+          - paragraph [ref=e68]: Phil Wulff | Physiotherapist
+          - paragraph [ref=e69]: After more than 20 years in physiotherapy, I've learned that understanding why a problem exists is often more important than simply treating where it hurts.
+          - paragraph [ref=e70]: My approach combines detailed clinical assessment, fresh thinking and targeted treatment strategies, particularly when symptoms are complex, persistent or haven't responded as expected.
+          - paragraph [ref=e71]: I look beyond the obvious, question assumptions and work to identify a clearer way forward.
+          - paragraph [ref=e72]:
+            - link "Discover the thinking behind Haven" [ref=e73] [cursor=pointer]:
+              - /url: /about-us
+              - text: Discover the thinking behind Haven
+              - generic [aria-hidden] [ref=e74]: →
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - paragraph [ref=e78]: Haven Sports & Family Physiotherapy
+        - paragraph [ref=e79]:
+          - link "2 Lionel Parade, Springfield NSW 2250" [ref=e80] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=2+Lionel+Parade+Springfield+NSW+2250
+        - paragraph [ref=e81]:
+          - text: Phone
+          - link "(02) 4385 2616" [ref=e82] [cursor=pointer]:
+            - /url: tel:+61243852616
+          - text: Email
+          - link "info@havenphysio.com.au" [ref=e83] [cursor=pointer]:
+            - /url: mailto:info@havenphysio.com.au
+        - paragraph [ref=e84]: Open Monday to Friday, by appointment only.
+      - generic [ref=e85]:
+        - paragraph [ref=e86]: Pages
+        - list [ref=e87]:
+          - listitem [ref=e88]:
+            - link "Home" [ref=e89] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e90]:
+            - link "About Haven" [ref=e91] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=e92]:
+            - link "What We Treat" [ref=e93] [cursor=pointer]:
+              - /url: /what-we-treat
+          - listitem [ref=e94]:
+            - link "Treatments & Technology" [ref=e95] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e96]:
+            - link "Fees & Appointments" [ref=e97] [cursor=pointer]:
+              - /url: /fees-and-appointments
+          - listitem [ref=e98]:
+            - link "For Referrers" [ref=e99] [cursor=pointer]:
+              - /url: /for-referrers
+          - listitem [ref=e100]:
+            - link "Contact & Location" [ref=e101] [cursor=pointer]:
+              - /url: /location-new-premises
+      - generic [ref=e102]:
+        - paragraph [ref=e103]: Bookings
+        - list [ref=e104]:
+          - listitem [ref=e105]:
+            - link "Book online" [ref=e106] [cursor=pointer]:
+              - /url: https://havenphysio.cliniko.com/bookings
+          - listitem [ref=e107]:
+            - link "Call (02) 4385 2616" [ref=e108] [cursor=pointer]:
+              - /url: tel:+61243852616
+          - listitem [ref=e109]:
+            - link "Follow us on Facebook" [ref=e110] [cursor=pointer]:
+              - /url: https://www.facebook.com/HavenPhysio
+    - generic [ref=e111]:
+      - paragraph [ref=e112]: © Haven Sports & Family Physiotherapy. All rights reserved.
+      - paragraph [ref=e113]: Physiotherapist Phil Wulff, Springfield, Central Coast NSW
+  - button "Switch to dark theme" [ref=e114] [cursor=pointer]
