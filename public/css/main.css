@@ -196,7 +196,7 @@ ul, ol { margin: 0 0 1rem; }
 
 /* ---- header + nav (mobile first, no JS needed) --------------------------- */
 .site-header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; position: relative; }
+.bar { display: flex; align-items: center; gap: 0.5rem; min-height: 4.5rem; position: relative; }
 .brand { display: flex; align-items: center; text-decoration: none; min-height: 2.75rem; }
 .brand img { height: 3.25rem; width: auto; }
 @media (min-width: 900px) { .brand img { height: 3.75rem; } .bar { min-height: 5rem; } }
@@ -213,7 +213,7 @@ ul, ol { margin: 0 0 1rem; }
 :root[data-theme="dark"] .logo-light { display: none; }
 :root[data-theme="dark"] .logo-dark { display: block; }
 .nav-toggle-input { position: absolute; opacity: 0; width: 0; height: 0; }
-.nav-toggle { display: flex; align-items: center; justify-content: center; width: 2.9rem; height: 2.9rem; border-radius: var(--radius); border: 1px solid var(--line); cursor: pointer; }
+.nav-toggle { order: 3; flex: none; display: flex; align-items: center; justify-content: center; width: 2.9rem; height: 2.9rem; border-radius: var(--radius); border: 1px solid var(--line); cursor: pointer; }
 .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { display: block; width: 1.3rem; height: 2px; background: var(--fg); position: relative; transition: transform 0.2s; content: ""; }
 .nav-toggle span::before { position: absolute; top: -6px; }
 .nav-toggle span::after { position: absolute; top: 6px; }
@@ -221,22 +221,26 @@ ul, ol { margin: 0 0 1rem; }
 .nav-toggle-input:checked + .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle-input:checked + .nav-toggle span::after { transform: translateY(-6px) rotate(-45deg); }
 .nav-toggle-input:focus-visible + .nav-toggle { outline: 3px solid var(--accent); }
-.site-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); }
+.site-nav { order: 1; display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); }
 .nav-toggle-input:checked ~ .site-nav { display: block; }
 .site-nav ul { list-style: none; margin: 0; padding: 0.5rem 1.25rem 1.25rem; }
 .site-nav li { margin: 0; }
 .site-nav a { display: block; padding: 0.8rem 0; min-height: 2.75rem; text-decoration: none; color: var(--fg); font-family: var(--font-display); font-weight: 600; border-bottom: 1px solid var(--line); }
 .site-nav a[aria-current="page"] { color: var(--primary); }
-.site-nav .btn-book { margin-top: 1rem; background: var(--accent); color: var(--accent-ink); border-radius: var(--radius); text-align: center; padding: 0.7rem 1.2rem; border: 0; font-weight: 700; }
-@media (min-width: 900px) {
+/* The booking button lives in the bar, not in the menu, so it stays on screen
+   whether the compact menu is open or shut. */
+.btn-book { order: 2; flex: none; margin-left: auto; display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: 0.6rem 1rem; background: var(--accent); color: var(--accent-ink); border-radius: var(--radius); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
+.btn-book:hover { color: var(--accent-ink); filter: brightness(1.06); }
+/* Seven links plus the button need the full bar, so the row starts at 1120px. */
+@media (min-width: 1120px) {
+  .bar { gap: 0.75rem; }
   .nav-toggle { display: none; }
-  .site-nav { display: block; position: static; background: none; border: 0; }
-  .site-nav ul { display: flex; align-items: center; gap: 0.25rem; padding: 0; }
-  .site-nav a { padding: 0.6rem 0.85rem; border: 0; border-bottom: 2px solid transparent; border-radius: 0; }
+  .site-nav { margin-left: auto; display: block; position: static; background: none; border: 0; }
+  .site-nav ul { display: flex; align-items: center; gap: 0; padding: 0; }
+  .site-nav a { padding: 0.6rem 0.4rem; border: 0; border-bottom: 2px solid transparent; border-radius: 0; font-size: 0.8rem; white-space: nowrap; }
   .site-nav a:hover { color: var(--primary); border-bottom-color: var(--line); }
   .site-nav a[aria-current="page"] { border-bottom-color: var(--accent); }
-  .site-nav .btn-book { margin: 0 0 0 0.75rem; padding: 0.6rem 1.2rem; }
-  .site-nav .btn-book:hover { border-bottom-color: transparent; filter: brightness(1.06); }
+  .btn-book { margin-left: 0.25rem; }
 }
 
 /* ---- sections and rhythm ------------------------------------------------- */
