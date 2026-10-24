@@ -186,6 +186,9 @@ ul, ol { margin: 0 0 1rem; }
 .skip-link:focus { left: 1rem; }
 .muted { color: var(--fg-muted); }
 .label { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); margin: 0 0 0.9rem; }
+/* The eyebrow in Haven's orange. The readable tone, because it is being read
+   as words rather than used as a fill. */
+.label-accent { color: var(--accent-strong); }
 .lead { font-size: clamp(1.1rem, 1.8vw, 1.25rem); color: var(--fg-muted); max-width: 38rem; }
 .measure { max-width: 42rem; }
 [hidden] { display: none !important; }
@@ -284,6 +287,7 @@ ul, ol { margin: 0 0 1rem; }
 /* The headline: three phrases, each on its own line where the width allows. */
 .headline { font-size: clamp(2.1rem, 4vw, 2.9rem); }
 .headline-line { display: block; }
+.headline-accent { color: var(--accent-strong); }
 .home .headline-accent { color: var(--home-orange); }
 
 /* ---- the Haven approach: three cards that open ---------------------------
@@ -379,6 +383,23 @@ ul, ol { margin: 0 0 1rem; }
 .prose table { width: 100%; border-collapse: collapse; }
 .prose th, .prose td { text-align: left; padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--line); }
 .prose blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 4px solid var(--accent); color: var(--fg-muted); }
+
+/* ---- about: the opening and the note beneath it -------------------------
+   Phil's introduction is set as type on its own, the way the home page opens:
+   an orange eyebrow, the headline broken across two lines with the second in
+   orange, then the paragraphs on a reading measure. Nothing but space holds
+   the headline apart from the text. The note that follows takes the page's
+   tinted field and a short orange rule over the heading, the same marker the
+   approach cards wear on the home page. */
+.about-opening { padding-bottom: clamp(2.75rem, 6vw, 4rem); }
+.about-opening h1 { max-width: 28ch; }
+.about-intro { max-width: 40rem; margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.about-intro p { margin-bottom: 1.15rem; }
+.about-intro p:first-child { font-size: clamp(1.1rem, 1.8vw, 1.2rem); }
+.about-intro p:last-child { margin-bottom: 0; }
+.about-note h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+.about-note p:last-child { margin-bottom: 0; }
+@media (min-width: 900px) { .about-note h2 { margin-bottom: 0; } }
 
 /* ---- services: content with an aside ------------------------------------ */
 .with-aside { display: grid; gap: 2.5rem; align-items: start; }
