@@ -593,19 +593,55 @@ ul, ol { margin: 0 0 1rem; }
 .treat-close h2 { max-width: 18ch; }
 @media (min-width: 900px) { .treat-close h2 { margin-bottom: 0; } }
 
-/* ---- services: content with an aside ------------------------------------ */
-.with-aside { display: grid; gap: 2.5rem; align-items: start; }
-@media (min-width: 960px) { .with-aside { grid-template-columns: minmax(0, 46rem) 18rem; justify-content: space-between; gap: 4rem; } .aside { position: sticky; top: 6rem; } }
-.aside-block { border-top: 2px solid var(--primary); padding-top: 1rem; margin-bottom: 2rem; }
-.aside-block ul { list-style: none; padding: 0; margin: 0; }
-.aside-block li { border-bottom: 1px solid var(--line); }
-.aside-block li a { display: block; padding: 0.55rem 0; text-decoration: none; min-height: 2.75rem; }
-.aside-block li a:hover { text-decoration: underline; }
-.aside-block p { margin-bottom: 0.75rem; }
-.aside-block .btn { width: 100%; }
-.prose .section-rule { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
-.prose .box { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.1rem 1.25rem; margin: 1.5rem 0; }
-.prose .box p:last-child { margin-bottom: 0; }
+/* ---- treatments and technology ------------------------------------------
+   The page is built on What We Treat: the same label, the two line headline
+   with the second line in orange, the same measured intro. Under it the three
+   stages of treatment stand in hairline topped columns, the orange filling a
+   third, two thirds and then the whole rule as the stages advance, the way the
+   home page marks its three steps. The treatment options keep the card grid of
+   What We Treat, with dashed slots holding the place of the six cards until
+   they arrive. */
+.tt-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
+.tt-opening h1 { max-width: 34ch; }
+.tt-opening + .section { border-top: 0; padding-top: clamp(2rem, 4.5vw, 3.25rem); }
+
+.tt-lead { max-width: 44rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.tt-lead p { margin-bottom: 1.15rem; }
+.tt-lead p:last-child { margin-bottom: 0; }
+.tt-intro { max-width: 42rem; color: var(--fg-muted); margin-bottom: clamp(2.25rem, 4.5vw, 3rem); }
+
+.stage-grid { list-style: none; display: grid; gap: 2.25rem; margin: 0; padding: 0; }
+@media (min-width: 740px) { .stage-grid { grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3.5vw, 3rem); } }
+.stage {
+  padding-top: 1.5rem;
+  background-image: linear-gradient(to right, var(--accent) 0 33.33%, var(--line) 33.33%);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: left top;
+}
+.stage-grid .stage:nth-child(2) { background-image: linear-gradient(to right, var(--accent) 0 66.66%, var(--line) 66.66%); }
+.stage-grid .stage:nth-child(3) { background-image: linear-gradient(to right, var(--accent) 0 100%); }
+.stage-icon { width: 2.25rem; height: 2.25rem; margin-bottom: 1.15rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.stage h3 { margin-bottom: 0.55rem; }
+.stage p { color: var(--fg-muted); margin-bottom: 0; }
+
+/* The six slots the treatment cards will fill: the card grid of What We Treat,
+   a dashed hairline instead of a border and nothing inside but the orange mark
+   and the number, so the gap is plain to see. */
+.tt-options { --tt-gap: 0.65rem; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--tt-gap); margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0; padding: 0; }
+@media (min-width: 560px) { .tt-options { --tt-gap: 1rem; } }
+@media (min-width: 900px) { .tt-options { --tt-gap: 1.25rem; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tt-slot { display: grid; align-content: start; gap: 0.4rem; min-height: 7rem; padding: 1rem 0.9rem; border: 1px dashed var(--line); border-radius: var(--radius); }
+.tt-slot-icon { width: 1.85rem; height: 1.85rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tt-slot p { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--fg-muted); }
+
+/* The booking line under the options: the hairline, the appointment note on
+   the left and the two booking links on the right where the width allows. */
+.tt-book { margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 1px solid var(--line); display: grid; gap: 1.25rem; align-items: center; }
+@media (min-width: 740px) { .tt-book { grid-template-columns: minmax(0, 1fr) auto; column-gap: 3rem; } }
+.tt-book .label { margin-bottom: 0.4rem; }
+.tt-book p { margin: 0; max-width: 34rem; }
+.tt-book .actions { margin-top: 0; }
 
 /* ---- contact ------------------------------------------------------------- */
 .contact-grid { display: grid; gap: 2.5rem; align-items: start; }
