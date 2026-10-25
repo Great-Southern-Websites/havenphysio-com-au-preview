@@ -342,17 +342,62 @@ ul, ol { margin: 0 0 1rem; }
 .booking-notes li { padding: 0.5rem 0; }
 .booking-notes strong { color: var(--primary); }
 
-/* ---- people -------------------------------------------------------------- */
-.person { display: grid; gap: 1.75rem; padding-block: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
-.person:first-of-type { border-top: 0; padding-top: 0; }
-/* The portrait sits in the same soft neutral field as before, held to a
-   modest width so it balances the text beside it rather than dominating the
-   page, and with the home page's gently rounded corners. */
-.person-photo { background: var(--bg-alt); border-radius: calc(var(--radius) * 2); padding: 1rem; margin: 0; max-width: min(54vw, 14rem); }
-.person-photo img { border-radius: calc(var(--radius) * 2); width: 100%; }
-.person h2 { margin-bottom: 0.2rem; }
-.person .role { font-family: var(--font-display); font-weight: 600; color: var(--fg-muted); margin-bottom: 1.25rem; }
-@media (min-width: 720px) { .person { grid-template-columns: 13rem 1fr; gap: 3rem; } .person-photo { align-self: start; max-width: none; } }
+/* ---- people: the three profile cards on the about page -------------------
+   The same plain <details> the home page's approach cards use, so a tap, a
+   click and the keyboard all work and every biography is in the page without
+   JavaScript. One card opens at a time. On a phone the portrait sits small on
+   the left with the name, role and opening sentence beside it; from 860px the
+   three cards take equal columns with the portrait above the name. The orange
+   rule across the top of each card is the marker the approach cards and the
+   about note already wear. */
+.team-title { margin-bottom: 1.75rem; }
+.team-grid { display: grid; gap: 1rem; }
+@media (min-width: 860px) { .team-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; } }
+
+.team-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); background-image: linear-gradient(to right, var(--accent) 0 100%); background-repeat: no-repeat; background-size: 100% 3px; background-position: left top; }
+.team-card[open] { border-color: var(--accent); }
+
+.team-card summary {
+  display: grid;
+  grid-template-columns: 4.75rem minmax(0, 1fr);
+  gap: 0.2rem 1.1rem;
+  grid-template-areas: "photo name" "photo role" "photo intro" "more more";
+  padding: 1.5rem 1.35rem;
+  cursor: pointer;
+  list-style: none;
+}
+.team-card summary::-webkit-details-marker { display: none; }
+
+/* The portrait keeps the proportions of the photograph we have, so the two
+   placeholders hold exactly the same frame until the real photographs land. */
+.team-photo { grid-area: photo; align-self: start; display: block; width: 100%; aspect-ratio: 2 / 3; border-radius: calc(var(--radius) * 2); overflow: hidden; background: var(--bg-alt); }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+/* Placeholder: a dashed frame and a plain figure, so it reads as waiting for a
+   photograph rather than as a portrait. */
+.team-photo-empty { display: grid; place-items: center; border: 1px dashed var(--line); }
+.team-photo-empty svg { width: 46%; height: auto; fill: none; stroke: var(--fg-muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.team-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.2; color: var(--primary); }
+.team-role { grid-area: role; font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; line-height: 1.35; color: var(--fg-muted); }
+.team-intro { grid-area: intro; margin-top: 0.4rem; color: var(--fg); }
+.team-more { grid-area: more; display: flex; align-items: center; gap: 0.4rem; margin-top: 1rem; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--accent-strong); }
+.team-chevron { transition: transform 0.15s; }
+.team-card[open] .team-chevron { transform: rotate(180deg); }
+.team-more-close { display: none; }
+.team-card[open] .team-more-open { display: none; }
+.team-card[open] .team-more-close { display: inline; }
+.team-card summary:hover .team-name { color: var(--accent-strong); }
+
+.team-bio { margin: 0 1.35rem; padding: 1.1rem 0 1.5rem; border-top: 1px solid var(--line); color: var(--fg); }
+
+@media (min-width: 860px) {
+  .team-card summary { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "name" "role" "intro" "more"; padding: 1.5rem; }
+  .team-photo { width: 7.5rem; margin-bottom: 1.1rem; }
+  /* Two lines of room for the longest role, so the three collapsed cards keep
+     their opening sentences and their chevrons on the same line as each other. */
+  .team-role { min-height: 2.7em; }
+  .team-bio { margin-inline: 1.5rem; padding-bottom: 1.75rem; }
+}
 /* The thinking behind Haven: Phil's photograph beside his introduction.
    The portrait keeps its own proportions and its own background, held to a
    modest width on a phone so the orange eyebrow, the heading and the first

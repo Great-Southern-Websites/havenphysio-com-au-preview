@@ -1,6 +1,6 @@
 ---
 title: "About Haven"
-description: "Meet physiotherapist Phil Wulff and practice manager Belinda Lazzaroni, the people behind Haven Sports and Family Physiotherapy in Springfield."
+description: "Meet the people behind Haven Sports and Family Physiotherapy in Springfield: physiotherapist Phil Wulff, John Wulff and practice manager Belinda."
 layout: default
 ---
 {@io.quarkiverse.roq.frontmatter.runtime.model.Page page}
@@ -56,38 +56,59 @@ layout: default
 
 <section class="section">
   <div class="container">
-    <article class="person">
-      <figure class="person-photo">
-        <img src="{=site.url('images/phil-wulff-1000.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w, {=site.url('images/phil-wulff-1000.webp')} 1000w" sizes="(min-width: 720px) 11rem, 54vw" alt="Phil Wulff, physiotherapist and founder of Haven Sports and Family Physiotherapy" width="1000" height="1506" fetchpriority="high">
-      </figure>
-      <div class="prose">
-        <h2>Philip Wulff</h2>
-        <p class="role">Physiotherapist, Master of Physiotherapy Studies</p>
-        <p>Phil qualified as a physiotherapist from the University of Queensland in 2005. He has worked in a range of sporting and clinical environments in Brisbane and on the Central Coast. He has a special interest in sporting injuries, back and neck pain, soft tissue therapy and helping people understand the underlying mechanics of the way we move well.</p>
-        <p>He treats people of all ages, and the conditions he sees most often involve the shoulder and neck, the back, hip and pelvis, and the upper and lower limbs.</p>
-        <p>Since moving to Terrigal in 2009, Phil has built a good working relationship within many circles of the Central Coast community.</p>
-        <h3>Sports Phil treats</h3>
-        <p>Phil has an avid interest in sports, and he treats many members of the local sporting groups, including:</p>
-        <ul>
-          <li>Runners. Running groups are great for social interaction, but running injuries are common.</li>
-          <li>Brazilian Jiu Jitsu.</li>
-          <li>Soccer players of all ages, and especially the over-35s and over-45s, who tend to keep us busy.</li>
-          <li>Surfing, cricket, rugby, tennis, basketball, Oztag and dragon-boating.</li>
-          <li>Golfers. Phil once played off a 9 handicap, before having children and running his business.</li>
-          <li>Gymnastics and dancers.</li>
-        </ul>
-        <p>Essentially, we are always interested in sports.</p>
-        <p><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book an appointment with Phil</a></p>
-      </div>
-    </article>
+    <h2 class="team-title">The People Behind Haven</h2>
+    <div class="team-grid">
+      <details class="team-card" name="haven-team">
+        <summary>
+          <span class="team-photo"><img src="{=site.url('images/phil-wulff-480.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w" sizes="(min-width: 860px) 7.5rem, 4.75rem" alt="Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" width="1000" height="1506" loading="lazy"></span>
+          <span class="team-name">Philip Wulff</span>
+          <span class="team-role">Physiotherapist | Master of Physiotherapy Studies</span>
+          <span class="team-intro">Over 20 years of experience in musculoskeletal physiotherapy.</span>
+          <span class="team-more"><span class="team-more-open">Read more</span><span class="team-more-close">Read less</span><svg class="team-chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <p class="team-bio">Phil graduated from the University of Queensland in 2005 and has more than 20 years of clinical experience across sporting and private practice settings. His particular interests include musculoskeletal injuries, back and neck pain, soft tissue treatment and understanding the mechanics of movement. He brings this experience to Haven through careful assessment, clinical reasoning and hands-on treatment.</p>
+      </details>
 
-    <article class="person">
-      <div></div>
-      <div class="prose">
-        <h2>Belinda Lazzaroni</h2>
-        <p class="role">Practice Manager</p>
-        <p>Belinda brings with her a strong organisational background and the skills required to coordinate a growing practice. Mother of three gorgeous kids, Belinda lives locally on the Central Coast and is actively involved in many social groups, including North Avoca Surf Life Saving Club. She enjoys exercising, having massages and attending pilates at her local gym.</p>
-      </div>
-    </article>
+      {! Placeholder portrait: replace this block with John's photograph when it is supplied. !}
+      <details class="team-card" name="haven-team">
+        <summary>
+          <span class="team-photo team-photo-empty" role="img" aria-label="Photograph of John Wulff to come"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5"/></svg></span>
+          <span class="team-name">John Wulff</span>
+          <span class="team-role">Physiotherapy Assistant &amp; Patient Support</span>
+          <span class="team-intro">Hands-on patient support, with further study in remedial massage.</span>
+          <span class="team-more"><span class="team-more-open">Read more</span><span class="team-more-close">Read less</span><svg class="team-chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <p class="team-bio">John plays an active role in the day-to-day running of Haven, welcoming patients, coordinating appointments and assisting Phil with treatments and patient care. He is studying the Diploma of Remedial Massage through Evolve College in Newcastle, developing his knowledge of anatomy, musculoskeletal conditions and hands-on treatment techniques.</p>
+      </details>
+
+      {! Placeholder portrait: replace this block with Belinda's photograph when it is supplied. !}
+      <details class="team-card" name="haven-team">
+        <summary>
+          <span class="team-photo team-photo-empty" role="img" aria-label="Photograph of Belinda to come"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5"/></svg></span>
+          <span class="team-name">Belinda</span>
+          <span class="team-role">Practice Manager</span>
+          <span class="team-intro">Helping make every visit organised, welcoming and personal.</span>
+          <span class="team-more"><span class="team-more-open">Read more</span><span class="team-more-close">Read less</span><svg class="team-chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </summary>
+        <p class="team-bio">Belinda has been part of Haven since 2020 and helps keep the practice running smoothly. From appointment coordination and patient enquiries to day-to-day administration, she provides the organisation and continuity that support a welcoming, professional and personalised experience for Haven's patients.</p>
+      </details>
+    </div>
+    <p class="actions"><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book an appointment</a></p>
   </div>
 </section>
+{! Browsers without the exclusive-accordion "name" attribute on <details> get the same
+   one-card-at-a-time behaviour from here. Everywhere else the browser does it. !}
+<script>{|
+  (function () {
+    if ('name' in document.createElement('details')) return;
+    var cards = document.querySelectorAll('.team-card');
+    Array.prototype.forEach.call(cards, function (card) {
+      card.addEventListener('toggle', function () {
+        if (!card.open) return;
+        Array.prototype.forEach.call(cards, function (other) {
+          if (other !== card) other.open = false;
+        });
+      });
+    });
+  })();
+|}</script>
