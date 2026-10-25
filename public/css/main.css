@@ -460,48 +460,138 @@ ul, ol { margin: 0 0 1rem; }
 .section .pillar h2 { font-size: 1.2rem; letter-spacing: 0; margin-bottom: 0.55rem; }
 .pillar p { color: var(--fg-muted); margin-bottom: 0; }
 
-/* ---- what we treat: six condition cards that open ------------------------
-   The third set of <details> cards on the site, after the home page's approach
-   and the about page's people, so they wear the same orange rule across the
-   top, the same chevron and the same one-card-at-a-time behaviour. These are
-   compact: a line icon in the readable orange, the condition and a line of
-   symptoms. One column on the narrowest phones, two from 400px and three from
-   900px, with the cards sitting at the top of their row so an open card does
-   not stretch the ones beside it. */
+/* ---- what we treat: six condition cards and a full-width panel -----------
+   The cards keep the compact face the other <details> cards on the site wear:
+   the orange rule across the top, a line icon in the readable orange, the
+   condition and a line of symptoms. Two columns on a phone, three from 900px.
+   The reading text does not sit in those columns. Each card is a label for a
+   hidden checkbox, and the panel that follows it in the markup is placed by
+   hand in the grid row directly beneath its card's row, spanning every column,
+   so the explanation is read at full width. Row gap is zero and the spacing
+   comes from the margin under each card, which lets the five rows that hold no
+   open panel collapse to nothing. A checkbox rather than a radio, so a second
+   tap on the same card closes it; the script on the page keeps one open. */
 .treat-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
 .treat-opening h1 { max-width: 26ch; }
 .treat-intro { max-width: 42rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
 .treat-intro p:last-child { margin-bottom: 0; }
 .treat-opening + .section { border-top: 0; padding-top: clamp(2rem, 4.5vw, 3.25rem); }
 
-.treat-grid { display: grid; gap: 0.85rem; align-items: start; }
-@media (min-width: 400px) { .treat-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-@media (min-width: 900px) { .treat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+.treat-grid {
+  --treat-gap: 0.65rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--treat-gap);
+  row-gap: 0;
+  margin-bottom: calc(var(--treat-gap) * -1);
+}
+@media (min-width: 560px) { .treat-grid { --treat-gap: 1rem; } }
+@media (min-width: 900px) { .treat-grid { --treat-gap: 1.25rem; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
-.treat-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); background-image: linear-gradient(to right, var(--accent) 0 100%); background-repeat: no-repeat; background-size: 100% 3px; background-position: left top; }
-.treat-card[open] { border-color: var(--accent); }
-.treat-card summary {
+/* The cards are the only <label> children of the grid, the panels the only
+   <div> children and the checkboxes the only <input> children, so :nth-of-type
+   numbers the six of each separately. Each checkbox shares its card's cell, so
+   moving to it with the keyboard brings that card into view. */
+.treat-grid > label:nth-of-type(1), .treat-grid > input:nth-of-type(1) { grid-row: 1; grid-column: 1; }
+.treat-grid > label:nth-of-type(2), .treat-grid > input:nth-of-type(2) { grid-row: 1; grid-column: 2; }
+.treat-grid > label:nth-of-type(3), .treat-grid > input:nth-of-type(3) { grid-row: 3; grid-column: 1; }
+.treat-grid > label:nth-of-type(4), .treat-grid > input:nth-of-type(4) { grid-row: 3; grid-column: 2; }
+.treat-grid > label:nth-of-type(5), .treat-grid > input:nth-of-type(5) { grid-row: 5; grid-column: 1; }
+.treat-grid > label:nth-of-type(6), .treat-grid > input:nth-of-type(6) { grid-row: 5; grid-column: 2; }
+.treat-grid > div:nth-of-type(1), .treat-grid > div:nth-of-type(2) { grid-row: 2; }
+.treat-grid > div:nth-of-type(3), .treat-grid > div:nth-of-type(4) { grid-row: 4; }
+.treat-grid > div:nth-of-type(5), .treat-grid > div:nth-of-type(6) { grid-row: 6; }
+@media (min-width: 900px) {
+  .treat-grid > label:nth-of-type(3), .treat-grid > input:nth-of-type(3) { grid-row: 1; grid-column: 3; }
+  .treat-grid > label:nth-of-type(4), .treat-grid > input:nth-of-type(4) { grid-row: 3; grid-column: 1; }
+  .treat-grid > label:nth-of-type(5), .treat-grid > input:nth-of-type(5) { grid-row: 3; grid-column: 2; }
+  .treat-grid > label:nth-of-type(6), .treat-grid > input:nth-of-type(6) { grid-row: 3; grid-column: 3; }
+  .treat-grid > div:nth-of-type(3) { grid-row: 2; }
+  .treat-grid > div:nth-of-type(4), .treat-grid > div:nth-of-type(5), .treat-grid > div:nth-of-type(6) { grid-row: 4; }
+}
+
+.treat-toggle { appearance: none; -webkit-appearance: none; width: 0; height: 0; margin: 0; padding: 0; border: 0; opacity: 0; justify-self: start; align-self: start; pointer-events: none; }
+
+.treat-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 1.25rem;
   grid-template-areas: "icon arrow" "name name" "short short";
-  gap: 0.3rem 0.75rem;
-  padding: 1.15rem 1.1rem;
+  gap: 0.3rem 0.6rem;
+  align-content: start;
+  margin-bottom: var(--treat-gap);
+  padding: 1rem 0.9rem;
   cursor: pointer;
-  list-style: none;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-image: linear-gradient(to right, var(--accent) 0 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: left top;
 }
-.treat-card summary::-webkit-details-marker { display: none; }
-.treat-icon { grid-area: icon; width: 2rem; height: 2rem; margin-bottom: 0.5rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.treat-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.25; color: var(--primary); }
-.treat-short { grid-area: short; font-size: 0.95rem; color: var(--fg-muted); }
+.treat-icon { grid-area: icon; width: 1.85rem; height: 1.85rem; margin-bottom: 0.4rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.treat-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--primary); }
+.treat-short { grid-area: short; font-size: 0.9rem; line-height: 1.5; color: var(--fg-muted); }
 .treat-arrow { grid-area: arrow; justify-self: end; width: 1.25rem; height: 1.25rem; color: var(--accent-strong); transition: transform 0.15s; }
-.treat-card[open] .treat-arrow { transform: rotate(180deg); }
-.treat-card summary:hover .treat-name { color: var(--accent-strong); }
-.treat-detail { margin: 0 1.1rem; padding: 1rem 0 1.25rem; border-top: 1px solid var(--line); color: var(--fg); }
-@media (min-width: 900px) {
-  .treat-card summary { padding: 1.4rem 1.35rem; }
-  .treat-name { font-size: 1.15rem; min-height: 2.5em; }
-  .treat-detail { margin-inline: 1.35rem; padding-bottom: 1.5rem; }
+.treat-card:hover .treat-name { color: var(--accent-strong); }
+
+/* The selected card: Haven's orange on the border and the title, the page's
+   tinted field behind it, and the chevron turned over. The panel below picks
+   up the same orange and the same tint, so the two read as one block. */
+.treat-toggle:checked + .treat-card { border-color: var(--accent); background-color: var(--bg-alt); }
+.treat-toggle:checked + .treat-card .treat-name { color: var(--accent-strong); }
+.treat-toggle:checked + .treat-card .treat-arrow { transform: rotate(180deg); }
+.treat-toggle:focus-visible + .treat-card { outline: 3px solid var(--accent-strong); outline-offset: 2px; }
+
+.treat-panel {
+  display: none;
+  grid-column: 1 / -1;
+  gap: 1.1rem;
+  margin-bottom: var(--treat-gap);
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.1rem, 3vw, 2.25rem) clamp(1.35rem, 3vw, 2.25rem);
+  background: var(--bg-alt);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background-image: linear-gradient(to right, var(--accent) 0 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: left top;
 }
+#treat-1:checked ~ #treat-panel-1,
+#treat-2:checked ~ #treat-panel-2,
+#treat-3:checked ~ #treat-panel-3,
+#treat-4:checked ~ #treat-panel-4,
+#treat-5:checked ~ #treat-panel-5,
+#treat-6:checked ~ #treat-panel-6 { display: grid; }
+@media (min-width: 900px) {
+  .treat-panel { grid-template-columns: 15rem minmax(0, 1fr); column-gap: clamp(2rem, 4vw, 3.5rem); }
+}
+.treat-panel-icon { width: 2.25rem; height: 2.25rem; margin-bottom: 0.85rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.treat-panel .treat-panel-name { margin: 0; font-size: clamp(1.25rem, 2.2vw, 1.5rem); letter-spacing: -0.01em; color: var(--primary); }
+.treat-panel-body { max-width: 44rem; font-size: clamp(1.05rem, 1.5vw, 1.12rem); line-height: 1.8; color: var(--fg); }
+.treat-panel-body > p:last-child { margin-bottom: 0; }
+
+/* The note under an explanation: a hairline, a small orange bulb and quieter
+   type. No field behind it, so it reads as an aside rather than a callout. */
+.treat-note { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: 0.95rem; line-height: 1.7; color: var(--fg-muted); }
+.treat-note-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--primary); }
+.treat-note-icon { flex: none; width: 1.15rem; height: 1.15rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.treat-note p:last-child { margin-bottom: 0; }
+
+/* The line to the treatments page: a hairline under the grid, the question on
+   the left and the button on the right where the width allows. */
+.treat-explore { margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 1px solid var(--line); display: grid; gap: 1.25rem; align-items: center; }
+@media (min-width: 740px) { .treat-explore { grid-template-columns: minmax(0, 1fr) auto; column-gap: 3rem; } }
+.section .treat-explore h2 { font-size: 1.35rem; letter-spacing: 0; margin-bottom: 0.35rem; }
+.treat-explore p { margin: 0; color: var(--fg-muted); max-width: 34rem; }
+.treat-explore .actions { margin-top: 0; }
+
+/* The closing section takes the about page's note: the heading alone in the
+   narrow column over a short orange rule, the text and the booking button
+   beside it. */
+.treat-close h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+.treat-close h2 { max-width: 18ch; }
+@media (min-width: 900px) { .treat-close h2 { margin-bottom: 0; } }
 
 /* ---- services: content with an aside ------------------------------------ */
 .with-aside { display: grid; gap: 2.5rem; align-items: start; }

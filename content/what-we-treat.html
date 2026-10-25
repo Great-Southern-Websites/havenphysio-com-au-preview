@@ -20,80 +20,150 @@ layout: default
 
 <section class="section">
   <div class="container">
+    {! Each condition is a hidden checkbox, the compact card that labels it, and a
+       full-width panel. The panel is placed by CSS in the row directly under its
+       card's row, so the reading text spans both columns on a phone and all three
+       from 900px. The checkbox gives the keyboard and a second tap the close;
+       the script at the foot of the page keeps one panel open at a time. !}
     <div class="treat-grid">
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2.5v5.75"/><circle cx="8" cy="12" r="3.75"/><path d="m10.65 14.65 4.6 4.6"/><path d="M15.25 19.25h6.25"/></svg>
-          <span class="treat-name">Joint Pain, Stiffness &amp; Arthritis</span>
-          <span class="treat-short">Aching joints, osteoarthritis and restricted mobility.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">Stiff knees, aching hips, painful shoulders or increasingly restricted joints? Osteoarthritis and other joint problems can affect comfort, mobility and confidence. Sometimes discomfort isn't simply about the joint itself. Restricted movement, surrounding muscle tension, swelling or inflammation can contribute to pressure, aching and stiffness. Understanding these factors helps guide treatment to relieve symptoms and improve movement.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-1" aria-controls="treat-panel-1">
+      <label class="treat-card" for="treat-1">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2.5v5.75"/><circle cx="8" cy="12" r="3.75"/><path d="m10.65 14.65 4.6 4.6"/><path d="M15.25 19.25h6.25"/></svg>
+        <span class="treat-name">Joint Pain, Stiffness &amp; Arthritis</span>
+        <span class="treat-short">Aching joints, osteoarthritis and restricted mobility.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-1" role="region" aria-labelledby="treat-heading-1">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2.5v5.75"/><circle cx="8" cy="12" r="3.75"/><path d="m10.65 14.65 4.6 4.6"/><path d="M15.25 19.25h6.25"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-1">Joint Pain, Stiffness &amp; Arthritis</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>Stiff knees, aching hips, painful shoulders or increasingly restricted joints? Osteoarthritis and other joint problems can affect comfort, mobility and confidence. Sometimes discomfort isn't simply about the joint itself. Restricted movement, surrounding muscle tension, swelling or inflammation can contribute to pressure, aching and stiffness. Understanding these factors helps guide treatment to relieve symptoms and improve movement.</p>
+          <div class="treat-note">
+            <p class="treat-note-head"><svg class="treat-note-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a5.5 5.5 0 0 0-3.2 9.98c.5.36.8.92.86 1.52l.06.5h4.56l.06-.5c.06-.6.36-1.16.86-1.52A5.5 5.5 0 0 0 12 3Z"/><path d="M9.9 17.5h4.2"/><path d="M10.6 20h2.8"/></svg>Did you know?</p>
+            <p>Inflammation, swelling and effusion are related, but don't mean quite the same thing. Inflammation is the body's response to irritation or injury. Swelling describes increased tissue volume, often due to fluid. Effusion refers to excess fluid within a joint or another body cavity. These terms commonly appear in medical reports.</p>
+          </div>
+        </div>
+      </div>
 
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 3c-1.9 2.8-1.9 5.2 0 8s1.9 6.2-1 10"/><path d="M10.4 6.2h5M9.9 10h5.2M10.6 13.9h5.2M10.1 17.7h5"/></svg>
-          <span class="treat-name">Back, Neck &amp; Spinal Pain</span>
-          <span class="treat-short">Everyday stiffness, recurring discomfort and persistent spinal pain.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">Back and neck pain can develop gradually or follow injury, prolonged positioning or changes in activity. Symptoms may include aching, stiffness, restricted movement or pain extending into the arms or legs. We assess spinal movement, surrounding muscles, joint function and contributing factors to guide treatment suited to your needs.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-2" aria-controls="treat-panel-2">
+      <label class="treat-card" for="treat-2">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 3c-1.9 2.8-1.9 5.2 0 8s1.9 6.2-1 10"/><path d="M10.4 6.2h5M9.9 10h5.2M10.6 13.9h5.2M10.1 17.7h5"/></svg>
+        <span class="treat-name">Back, Neck &amp; Spinal Pain</span>
+        <span class="treat-short">Everyday stiffness, recurring discomfort and persistent spinal pain.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-2" role="region" aria-labelledby="treat-heading-2">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 3c-1.9 2.8-1.9 5.2 0 8s1.9 6.2-1 10"/><path d="M10.4 6.2h5M9.9 10h5.2M10.6 13.9h5.2M10.1 17.7h5"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-2">Back, Neck &amp; Spinal Pain</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>Back and neck pain can develop gradually or follow injury, prolonged positioning or changes in activity. Symptoms may include aching, stiffness, restricted movement or pain extending into the arms or legs. We assess spinal movement, surrounding muscles, joint function and contributing factors to guide treatment suited to your needs.</p>
+        </div>
+      </div>
 
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 12q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 18q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/></svg>
-          <span class="treat-name">Muscle Pain &amp; Tightness</span>
-          <span class="treat-short">Aching muscles, persistent tightness and restricted movement.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">Muscle pain isn't always simply a strained or overworked muscle. Persistent aching and tightness may involve muscle tension, fascial restrictions or other contributing factors. We assess muscle and surrounding tissue function, identifying tension, sensitivity and movement restrictions that may contribute to discomfort. Treatment aims to improve mobility and restore comfortable movement.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-3" aria-controls="treat-panel-3">
+      <label class="treat-card" for="treat-3">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 12q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 18q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/></svg>
+        <span class="treat-name">Muscle Pain &amp; Tightness</span>
+        <span class="treat-short">Aching muscles, persistent tightness and restricted movement.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-3" role="region" aria-labelledby="treat-heading-3">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 12q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/><path d="M3 18q2.25-4 4.5 0t4.5 0t4.5 0t4.5 0"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-3">Muscle Pain &amp; Tightness</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>Muscle pain isn't always simply a strained or overworked muscle. Persistent aching and tightness may involve muscle tension, fascial restrictions or other contributing factors. We assess muscle and surrounding tissue function, identifying tension, sensitivity and movement restrictions that may contribute to discomfort. Treatment aims to improve mobility and restore comfortable movement.</p>
+        </div>
+      </div>
 
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.3c3.6 4.1 5.6 6.8 5.6 9.7a5.6 5.6 0 0 1-11.2 0c0-2.9 2-5.6 5.6-9.7Z"/><path d="M12 19.2a3 3 0 0 1-3-3c0-1.3 1-2.3 3-4.4"/></svg>
-          <span class="treat-name">Tendon &amp; Soft Tissue Problems</span>
-          <span class="treat-short">Tendinitis, bursitis, plantar fasciitis and persistent soft tissue pain.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">Tendon and soft tissue problems can cause pain during everyday activities, exercise or rest. Common presentations include tendinitis, bursitis, plantar fasciitis and irritation around muscles, tendons and joints. We assess tissue sensitivity, movement, loading and contributing factors to guide targeted treatment and improve comfort and function.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-4" aria-controls="treat-panel-4">
+      <label class="treat-card" for="treat-4">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.3c3.6 4.1 5.6 6.8 5.6 9.7a5.6 5.6 0 0 1-11.2 0c0-2.9 2-5.6 5.6-9.7Z"/><path d="M12 19.2a3 3 0 0 1-3-3c0-1.3 1-2.3 3-4.4"/></svg>
+        <span class="treat-name">Tendon &amp; Soft Tissue Problems</span>
+        <span class="treat-short">Tendinitis, bursitis, plantar fasciitis and persistent soft tissue pain.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-4" role="region" aria-labelledby="treat-heading-4">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.3c3.6 4.1 5.6 6.8 5.6 9.7a5.6 5.6 0 0 1-11.2 0c0-2.9 2-5.6 5.6-9.7Z"/><path d="M12 19.2a3 3 0 0 1-3-3c0-1.3 1-2.3 3-4.4"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-4">Tendon &amp; Soft Tissue Problems</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>Tendon and soft tissue problems can cause pain during everyday activities, exercise or rest. Common presentations include tendinitis, bursitis, plantar fasciitis and irritation around muscles, tendons and joints. We assess tissue sensitivity, movement, loading and contributing factors to guide targeted treatment and improve comfort and function.</p>
+        </div>
+      </div>
 
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="15" cy="4.5" r="2.25"/><path d="M13.75 8.5 10 11.75l2.75 3.25L11.5 21"/><path d="M10 11.75 6 13.5"/><path d="m12.75 15 4.5 1.5 1.25 3.5"/></svg>
-          <span class="treat-name">Sports &amp; Everyday Injuries</span>
-          <span class="treat-short">Helping you recover movement, strength and confidence.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">Whether an injury occurs during sport, work or everyday activity, recovery involves understanding what happened and what may be limiting progress. We assess affected tissues, movement and functional demands to guide treatment and a practical return to usual activities, while helping reduce the risk of recurring problems.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-5" aria-controls="treat-panel-5">
+      <label class="treat-card" for="treat-5">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="15" cy="4.5" r="2.25"/><path d="M13.75 8.5 10 11.75l2.75 3.25L11.5 21"/><path d="M10 11.75 6 13.5"/><path d="m12.75 15 4.5 1.5 1.25 3.5"/></svg>
+        <span class="treat-name">Sports &amp; Everyday Injuries</span>
+        <span class="treat-short">Helping you recover movement, strength and confidence.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-5" role="region" aria-labelledby="treat-heading-5">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="15" cy="4.5" r="2.25"/><path d="M13.75 8.5 10 11.75l2.75 3.25L11.5 21"/><path d="M10 11.75 6 13.5"/><path d="m12.75 15 4.5 1.5 1.25 3.5"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-5">Sports &amp; Everyday Injuries</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>Whether an injury occurs during sport, work or everyday activity, recovery involves understanding what happened and what may be limiting progress. We assess affected tissues, movement and functional demands to guide treatment and a practical return to usual activities, while helping reduce the risk of recurring problems.</p>
+        </div>
+      </div>
 
-      <details class="treat-card" name="haven-treat">
-        <summary>
-          <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="2"/><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6"/><path d="M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6"/></svg>
-          <span class="treat-name">Persistent &amp; Complex Pain</span>
-          <span class="treat-short">When symptoms keep returning or answers aren't clear.</span>
-          <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <p class="treat-detail">When pain keeps returning, affects multiple areas or hasn't improved with previous treatment, it can be difficult to know what to try next. We review the broader picture, identify potentially contributing factors and develop a considered treatment plan, with realistic expectations and progress reviewed along the way.</p>
-      </details>
+      <input class="treat-toggle" type="checkbox" id="treat-6" aria-controls="treat-panel-6">
+      <label class="treat-card" for="treat-6">
+        <svg class="treat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="2"/><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6"/><path d="M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6"/></svg>
+        <span class="treat-name">Persistent &amp; Complex Pain</span>
+        <span class="treat-short">When symptoms keep returning or answers aren't clear.</span>
+        <svg class="treat-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </label>
+      <div class="treat-panel" id="treat-panel-6" role="region" aria-labelledby="treat-heading-6">
+        <div class="treat-panel-head">
+          <svg class="treat-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="2"/><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6"/><path d="M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6"/></svg>
+          <h2 class="treat-panel-name" id="treat-heading-6">Persistent &amp; Complex Pain</h2>
+        </div>
+        <div class="treat-panel-body">
+          <p>When pain keeps returning, affects multiple areas or hasn't improved with previous treatment, it can be difficult to know what to try next. We review the broader picture, identify potentially contributing factors and develop a considered treatment plan, with realistic expectations and progress reviewed along the way.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="treat-explore">
+      <div>
+        <h2>Wondering how we might help?</h2>
+        <p>Explore the treatment options and technology available at Haven.</p>
+      </div>
+      <p class="actions"><a class="btn btn-outline" href="{=site.url('services')}">Explore Treatments &amp; Technology</a></p>
     </div>
   </div>
 </section>
-{! Browsers without the exclusive-accordion "name" attribute on <details> get the same
-   one-card-at-a-time behaviour from here. Everywhere else the browser does it. !}
+
+<section class="section section-tint treat-close">
+  <div class="container two-col narrow-left">
+    <div>
+      <h2>Where you feel the pain isn't always the whole story.</h2>
+    </div>
+    <div>
+      <p>Pain can be influenced by several factors, including joint mobility, muscle and soft tissue tension, inflammation, movement patterns and how tissues respond to load. Understanding these contributing factors helps us make more informed treatment decisions, rather than simply treating the painful area in isolation.</p>
+      <p class="actions"><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book an appointment</a></p>
+    </div>
+  </div>
+</section>
+{! One panel open at a time. Without this the checkboxes still open and close
+   their own panel, so the page works with the script switched off. !}
 <script>{|
   (function () {
-    if ('name' in document.createElement('details')) return;
-    var cards = document.querySelectorAll('.treat-card');
-    Array.prototype.forEach.call(cards, function (card) {
-      card.addEventListener('toggle', function () {
-        if (!card.open) return;
-        Array.prototype.forEach.call(cards, function (other) {
-          if (other !== card) other.open = false;
+    var toggles = document.querySelectorAll('.treat-toggle');
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      toggle.addEventListener('change', function () {
+        if (!toggle.checked) return;
+        Array.prototype.forEach.call(toggles, function (other) {
+          if (other !== toggle) other.checked = false;
         });
       });
     });
