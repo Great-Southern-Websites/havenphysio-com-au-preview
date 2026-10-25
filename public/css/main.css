@@ -287,6 +287,11 @@ ul, ol { margin: 0 0 1rem; }
 /* The headline: three phrases, each on its own line where the width allows. */
 .headline { font-size: clamp(2.1rem, 4vw, 2.9rem); }
 .headline-line { display: block; }
+/* A headline of three phrases: it runs on as one sentence and balances its
+   own lines while the screen is narrow, and breaks at the phrases from 640px. */
+.headline-flow { text-wrap: balance; }
+.headline-flow .headline-line { display: inline; }
+@media (min-width: 640px) { .headline-flow .headline-line { display: block; } }
 .headline-accent { color: var(--accent-strong); }
 .home .headline-accent { color: var(--home-orange); }
 
@@ -460,7 +465,9 @@ ul, ol { margin: 0 0 1rem; }
 .section .pillar h2 { font-size: 1.2rem; letter-spacing: 0; margin-bottom: 0.55rem; }
 .pillar p { color: var(--fg-muted); margin-bottom: 0; }
 
-/* ---- what we treat: six condition cards and a full-width panel -----------
+/* ---- the card grid: six cards and a full-width panel ---------------------
+   Used by What We Treat for its conditions and by Treatments & Technology for
+   its treatment options.
    The cards keep the compact face the other <details> cards on the site wear:
    the orange rule across the top, a line icon in the readable orange, the
    condition and a line of symptoms. Two columns on a phone, three from 900px.
@@ -562,7 +569,13 @@ ul, ol { margin: 0 0 1rem; }
 #treat-3:checked ~ #treat-panel-3,
 #treat-4:checked ~ #treat-panel-4,
 #treat-5:checked ~ #treat-panel-5,
-#treat-6:checked ~ #treat-panel-6 { display: grid; }
+#treat-6:checked ~ #treat-panel-6,
+#tech-1:checked ~ #tech-panel-1,
+#tech-2:checked ~ #tech-panel-2,
+#tech-3:checked ~ #tech-panel-3,
+#tech-4:checked ~ #tech-panel-4,
+#tech-5:checked ~ #tech-panel-5,
+#tech-6:checked ~ #tech-panel-6 { display: grid; }
 @media (min-width: 900px) {
   .treat-panel { grid-template-columns: 15rem minmax(0, 1fr); column-gap: clamp(2rem, 4vw, 3.5rem); }
 }
@@ -594,13 +607,12 @@ ul, ol { margin: 0 0 1rem; }
 @media (min-width: 900px) { .treat-close h2 { margin-bottom: 0; } }
 
 /* ---- treatments and technology ------------------------------------------
-   The page is built on What We Treat: the same label, the two line headline
-   with the second line in orange, the same measured intro. Under it the three
-   stages of treatment stand in hairline topped columns, the orange filling a
-   third, two thirds and then the whole rule as the stages advance, the way the
-   home page marks its three steps. The treatment options keep the card grid of
-   What We Treat, with dashed slots holding the place of the six cards until
-   they arrive. */
+   The page is built on What We Treat: the same label, the headline with one
+   phrase in orange, the same measured intro. Under it the three stages of
+   treatment stand in hairline topped columns, the orange filling a third, two
+   thirds and then the whole rule as the stages advance, the way the home page
+   marks its three steps. The treatment options are the What We Treat cards
+   themselves, so the two pages open the same way. */
 .tt-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
 .tt-opening h1 { max-width: 34ch; }
 .tt-opening + .section { border-top: 0; padding-top: clamp(2rem, 4.5vw, 3.25rem); }
@@ -625,22 +637,26 @@ ul, ol { margin: 0 0 1rem; }
 .stage h3 { margin-bottom: 0.55rem; }
 .stage p { color: var(--fg-muted); margin-bottom: 0; }
 
-/* The six slots the treatment cards will fill: the card grid of What We Treat,
-   a dashed hairline instead of a border and nothing inside but the orange mark
-   and the number, so the gap is plain to see. */
-.tt-options { --tt-gap: 0.65rem; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--tt-gap); margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0; padding: 0; }
-@media (min-width: 560px) { .tt-options { --tt-gap: 1rem; } }
-@media (min-width: 900px) { .tt-options { --tt-gap: 1.25rem; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.tt-slot { display: grid; align-content: start; gap: 0.4rem; min-height: 7rem; padding: 1rem 0.9rem; border: 1px dashed var(--line); border-radius: var(--radius); }
-.tt-slot-icon { width: 1.85rem; height: 1.85rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.tt-slot p { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--fg-muted); }
+/* The two line heading over the options, set like the page headline. */
+.tt-options-title .headline-line { line-height: 1.15; }
 
-/* The booking line under the options: the hairline, the appointment note on
-   the left and the two booking links on the right where the width allows. */
+/* The option cards sit on the tinted field, so the card that is open and its
+   panel take the page colour rather than the tint they use on What We Treat.
+   The orange border, title and turned chevron still mark the open card. */
+.tt-grid { margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.section-tint .treat-toggle:checked + .treat-card,
+.section-tint .treat-panel { background-color: var(--bg-card); }
+
+/* The note under the cards: the aside from inside the What We Treat panels,
+   given a heading and set on a reading measure. */
+.tt-note { max-width: 46rem; margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); }
+.section .tt-note-title { font-size: 1.2rem; letter-spacing: 0; margin: 0 0 0.5rem; color: var(--primary); }
+
+/* The closing line: the hairline, the message on the left and the booking
+   link on the right where the width allows. */
 .tt-book { margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 1px solid var(--line); display: grid; gap: 1.25rem; align-items: center; }
 @media (min-width: 740px) { .tt-book { grid-template-columns: minmax(0, 1fr) auto; column-gap: 3rem; } }
-.tt-book .label { margin-bottom: 0.4rem; }
-.tt-book p { margin: 0; max-width: 34rem; }
+.tt-book p { margin: 0; max-width: 42rem; }
 .tt-book .actions { margin-top: 0; }
 
 /* ---- contact ------------------------------------------------------------- */
