@@ -650,9 +650,17 @@ ul, ol { margin: 0 0 1rem; }
 .section-tint .treat-toggle:checked + .treat-card,
 .section-tint .treat-panel { background-color: var(--bg-card); }
 
+/* The tinted field stops at the cards: the note and the booking line that
+   follow sit on the white page the opening sections use, so the closing
+   section carries no tint, no rule of its own and no top padding. The note
+   keeps the gap it had inside the tint. */
+.tt-options { padding-bottom: clamp(2.25rem, 4.5vw, 3rem); }
+.tt-closing { padding-top: 0; border-top: 0; }
+
 /* The note under the cards: the aside from inside the What We Treat panels,
-   given a heading and set on a reading measure. */
-.tt-note { max-width: 46rem; margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); }
+   given a heading and set on a reading measure. On white its paragraph takes
+   Haven's dark grey rather than the muted grey, which reads more easily. */
+.tt-note { max-width: 46rem; margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); color: var(--primary); }
 .section .tt-note-title { font-size: 1.2rem; letter-spacing: 0; margin: 0 0 0.5rem; color: var(--primary); }
 
 /* The closing line: the hairline, the message on the left and the booking
