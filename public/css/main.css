@@ -292,8 +292,11 @@ ul, ol { margin: 0 0 1rem; }
 .headline-flow { text-wrap: balance; }
 .headline-flow .headline-line { display: inline; }
 @media (min-width: 640px) { .headline-flow .headline-line { display: block; } }
-.headline-accent { color: var(--accent-strong); }
-.home .headline-accent { color: var(--home-orange); }
+/* The highlighted phrase in a large headline carries Haven's brand orange at
+   full strength, on every page. At headline sizes it is set large and bold,
+   so the brand colour is used here rather than the darkened reading tone. */
+.headline-accent { color: var(--accent); }
+.home .headline-accent { color: var(--accent); }
 
 /* ---- the Haven approach: three cards that open ---------------------------
    Plain <details>, so a tap, a click and the keyboard all work and the text is
