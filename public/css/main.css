@@ -460,6 +460,49 @@ ul, ol { margin: 0 0 1rem; }
 .section .pillar h2 { font-size: 1.2rem; letter-spacing: 0; margin-bottom: 0.55rem; }
 .pillar p { color: var(--fg-muted); margin-bottom: 0; }
 
+/* ---- what we treat: six condition cards that open ------------------------
+   The third set of <details> cards on the site, after the home page's approach
+   and the about page's people, so they wear the same orange rule across the
+   top, the same chevron and the same one-card-at-a-time behaviour. These are
+   compact: a line icon in the readable orange, the condition and a line of
+   symptoms. One column on the narrowest phones, two from 400px and three from
+   900px, with the cards sitting at the top of their row so an open card does
+   not stretch the ones beside it. */
+.treat-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
+.treat-opening h1 { max-width: 26ch; }
+.treat-intro { max-width: 42rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.treat-intro p:last-child { margin-bottom: 0; }
+.treat-opening + .section { border-top: 0; padding-top: clamp(2rem, 4.5vw, 3.25rem); }
+
+.treat-grid { display: grid; gap: 0.85rem; align-items: start; }
+@media (min-width: 400px) { .treat-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+@media (min-width: 900px) { .treat-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+
+.treat-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); background-image: linear-gradient(to right, var(--accent) 0 100%); background-repeat: no-repeat; background-size: 100% 3px; background-position: left top; }
+.treat-card[open] { border-color: var(--accent); }
+.treat-card summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.25rem;
+  grid-template-areas: "icon arrow" "name name" "short short";
+  gap: 0.3rem 0.75rem;
+  padding: 1.15rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+.treat-card summary::-webkit-details-marker { display: none; }
+.treat-icon { grid-area: icon; width: 2rem; height: 2rem; margin-bottom: 0.5rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.treat-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.25; color: var(--primary); }
+.treat-short { grid-area: short; font-size: 0.95rem; color: var(--fg-muted); }
+.treat-arrow { grid-area: arrow; justify-self: end; width: 1.25rem; height: 1.25rem; color: var(--accent-strong); transition: transform 0.15s; }
+.treat-card[open] .treat-arrow { transform: rotate(180deg); }
+.treat-card summary:hover .treat-name { color: var(--accent-strong); }
+.treat-detail { margin: 0 1.1rem; padding: 1rem 0 1.25rem; border-top: 1px solid var(--line); color: var(--fg); }
+@media (min-width: 900px) {
+  .treat-card summary { padding: 1.4rem 1.35rem; }
+  .treat-name { font-size: 1.15rem; min-height: 2.5em; }
+  .treat-detail { margin-inline: 1.35rem; padding-bottom: 1.5rem; }
+}
+
 /* ---- services: content with an aside ------------------------------------ */
 .with-aside { display: grid; gap: 2.5rem; align-items: start; }
 @media (min-width: 960px) { .with-aside { grid-template-columns: minmax(0, 46rem) 18rem; justify-content: space-between; gap: 4rem; } .aside { position: sticky; top: 6rem; } }
