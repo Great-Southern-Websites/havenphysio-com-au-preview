@@ -657,10 +657,8 @@ ul, ol { margin: 0 0 1rem; }
 
 /* The closing line: the hairline, the message on the left and the booking
    link on the right where the width allows. */
-.tt-book { margin-top: clamp(2.25rem, 4.5vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 1px solid var(--line); display: grid; gap: 1.25rem; align-items: center; }
-@media (min-width: 740px) { .tt-book { grid-template-columns: minmax(0, 1fr) auto; column-gap: 3rem; } }
-.tt-book p { margin: 0; max-width: 42rem; }
-.tt-book .actions { margin-top: 0; }
+.tt-book { margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.tt-book .actions { margin: 0; }
 
 /* ---- contact ------------------------------------------------------------- */
 .contact-grid { display: grid; gap: 2.5rem; align-items: start; }
