@@ -668,6 +668,41 @@ ul, ol { margin: 0 0 1rem; }
 .tt-book { margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
 .tt-book .actions { margin: 0; }
 
+/* ---- your first visit ----------------------------------------------------
+   Four parts of a first appointment, all of them open: no cards, no panels.
+   Each is a numeral and a line icon in a narrow left column from 840px, a
+   bold heading and a short block of text, with a hairline between one part
+   and the next. The numerals and icons take the readable orange, as the
+   booking steps on the contact page do. */
+.visit-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
+.visit-opening h1 { max-width: 26ch; }
+.visit-opening + .section { border-top: 0; padding-top: clamp(1.5rem, 3.5vw, 2.5rem); }
+.visit-lead { max-width: 42rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.visit-lead p:last-child { margin-bottom: 0; }
+
+.visit-steps { list-style: none; margin: 0; padding: 0; counter-reset: visit; }
+.visit-step { counter-increment: visit; display: grid; gap: 0.9rem; padding-block: clamp(1.75rem, 3.5vw, 2.5rem); }
+.visit-step:first-child { padding-top: 0; }
+.visit-step:last-child { padding-bottom: 0; }
+.visit-step + .visit-step { border-top: 1px solid var(--line); }
+.visit-marker { display: flex; align-items: center; gap: 0.9rem; }
+.visit-marker::before { content: counter(visit); font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 0.9; color: var(--accent-strong); }
+.visit-icon { width: 2rem; height: 2rem; flex: none; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.section .visit-title { font-size: clamp(1.3rem, 2.4vw, 1.6rem); letter-spacing: -0.01em; margin: 0; color: var(--primary); }
+.visit-body { max-width: 44rem; font-size: clamp(1.02rem, 1.4vw, 1.08rem); }
+.visit-body p:last-child { margin-bottom: 0; }
+@media (min-width: 840px) {
+  .visit-step { grid-template-columns: 6rem minmax(0, 1fr); grid-template-areas: "marker title" "marker body"; column-gap: 2.5rem; row-gap: 0.9rem; align-items: start; }
+  .visit-marker { grid-area: marker; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .visit-marker::before { font-size: 3.4rem; }
+  .visit-title { grid-area: title; }
+  .visit-body { grid-area: body; }
+}
+
+/* The practical information that closes the page: the short orange rule the
+   about and treatment pages use above a closing heading. */
+.visit-before h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+
 /* ---- contact ------------------------------------------------------------- */
 .contact-grid { display: grid; gap: 2.5rem; align-items: start; }
 @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
