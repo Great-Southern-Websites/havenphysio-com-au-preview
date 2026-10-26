@@ -759,8 +759,34 @@ ul, ol { margin: 0 0 1rem; }
 }
 
 /* The practical information that closes the page: the short orange rule the
-   about and treatment pages use above a closing heading. */
+   about and treatment pages use above a closing heading, then the questions
+   themselves. Every answer is open, no cards and no panels, and each question
+   keeps the 6rem icon column the four parts above use, so one line of orange
+   icons runs down the whole page. Hairlines, not boxes, divide one question
+   from the next, on the same white field the rest of the page sits on. */
+.visit-before { background: var(--bg); }
 .visit-before h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+.visit-intro { max-width: 42rem; color: var(--fg-muted); margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem); }
+
+.visit-asks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.visit-ask { display: grid; gap: 0.55rem; padding-block: clamp(1.35rem, 2.8vw, 1.85rem); border-bottom: 1px solid var(--line); }
+.visit-ask-icon { width: 1.85rem; height: 1.85rem; flex: none; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.section .visit-ask-title { font-size: clamp(1.12rem, 1.9vw, 1.3rem); letter-spacing: -0.005em; margin: 0; color: var(--primary); }
+.visit-ask p { max-width: 44rem; margin: 0; }
+@media (min-width: 840px) {
+  .visit-ask { grid-template-columns: 6rem minmax(0, 1fr); grid-template-areas: "icon title" "icon body"; column-gap: 2.5rem; row-gap: 0.5rem; align-items: start; }
+  .visit-ask-icon { grid-area: icon; margin-top: 0.2rem; }
+  .visit-ask-title { grid-area: title; }
+  .visit-ask p { grid-area: body; }
+}
+
+/* The address and the booking button close the page, on one line where the
+   width allows, the way the treatments page closes. */
+.visit-book { display: grid; gap: 1rem; align-items: center; margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.visit-address { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--primary); }
+.visit-address a { color: inherit; }
+.visit-book .actions { margin: 0; }
+@media (min-width: 740px) { .visit-book { grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; } }
 
 /* ---- contact ------------------------------------------------------------- */
 .contact-grid { display: grid; gap: 2.5rem; align-items: start; }

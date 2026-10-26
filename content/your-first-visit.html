@@ -69,10 +69,59 @@ aliases: ["/fees-and-appointments/"]
   </div>
 </section>
 
-{! Room for the practical information the owner is supplying next. !}
+{! The practical questions, all of them answered in the open: no cards and no
+   panels. Each question keeps the icon column the four parts above use, so one
+   line of orange icons runs down the whole page, with a hairline between one
+   question and the next. The address and the booking button close the page. !}
 <section class="section visit-before">
   <div class="container">
     <h2>Before you arrive</h2>
-    <p class="measure">[Add your "Before you arrive" practical information here.]</p>
+    <p class="visit-intro">A few helpful details to make your first visit easier.</p>
+    <ul class="visit-asks">
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.6 3.4 5.1 5.1v4.2h2.2v11.3h9.4V9.3h2.2V5.1l-3.5-1.7a3.5 3.5 0 0 1-6.8 0z"/></svg>
+        <h3 class="visit-ask-title">What should I wear?</h3>
+        <p>Comfortable clothing that allows you to move freely and provides access to the area being assessed or treated.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.4 2.9h7.3l4.1 4.1v14.1H6.4z"/><path d="M13.7 2.9V7h4.1"/><path d="M9.2 12.8h5.8"/><path d="M9.2 16.4h5.8"/></svg>
+        <h3 class="visit-ask-title">What should I bring?</h3>
+        <p>Any referral or information from your GP or another health professional you've seen, along with relevant imaging reports, specialist letters or previous treatment information. You don't need to have everything, just bring what's available.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9.1" cy="7.9" r="3.2"/><path d="M3.3 20.2a5.8 5.8 0 0 1 11.6 0"/><circle cx="17.3" cy="8.8" r="2.4"/><path d="M16.6 14.4a5.2 5.2 0 0 1 4.1 5.1"/></svg>
+        <h3 class="visit-ask-title">Can someone come with me?</h3>
+        <p>You're welcome to bring a family member, friend or support person to your appointment. They can help you explain your concerns, ask questions or remember what's discussed. Sometimes having another set of ears makes all the difference.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 2.9h11"/><path d="M6.5 21.1h11"/><path d="M8.3 2.9v3.4L12 10.2l3.7-3.9V2.9"/><path d="M8.3 21.1v-3.4L12 13.8l3.7 3.9v3.4"/></svg>
+        <h3 class="visit-ask-title">How long is my first visit?</h3>
+        <p>Your first appointment is scheduled for 45 minutes, allowing additional time for assessment, discussion and treatment where appropriate.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.6 3.5h14.8a1.1 1.1 0 0 1 1.1 1.1v14.8a1.1 1.1 0 0 1-1.1 1.1H4.6a1.1 1.1 0 0 1-1.1-1.1V4.6a1.1 1.1 0 0 1 1.1-1.1z"/><path d="M9.6 17.2V6.8h3a2.9 2.9 0 0 1 0 5.8h-3"/></svg>
+        <h3 class="visit-ask-title">Is there parking?</h3>
+        <p>Yes. On-site parking is available, making it easy to arrive and access the clinic.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="14.1" cy="4.4" r="1.9"/><path d="M12.2 8.2v4.6h4.6l2.3 5.4"/><path d="M16.2 15a5.7 5.7 0 1 1-5.7-3.4"/></svg>
+        <h3 class="visit-ask-title">Is the clinic wheelchair accessible?</h3>
+        <p>Haven has been thoughtfully designed for easier access, with ramp entry, wide doorways and an accessible toilet equipped with grab rails and space for wheelchair users. We want every patient to feel comfortable and welcome.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.2 4.3H7.4a1.1 1.1 0 0 0-1.1 1.1v15.1a1.1 1.1 0 0 0 1.1 1.1h9.2a1.1 1.1 0 0 0 1.1-1.1V5.4a1.1 1.1 0 0 0-1.1-1.1h-1.8"/><path d="M9.2 2.7h5.6v3.1H9.2z"/><path d="M9.4 12.6h5.2"/><path d="M9.4 16.2h3.4"/></svg>
+        <h3 class="visit-ask-title">Do I need a referral?</h3>
+        <p>You don't need a GP referral for a standard private physiotherapy appointment. Some funded or compensable appointments have different requirements.</p>
+      </li>
+      <li class="visit-ask">
+        <svg class="visit-ask-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.7 5.6h14.6a1.1 1.1 0 0 1 1.1 1.1v12.7a1.1 1.1 0 0 1-1.1 1.1H4.7a1.1 1.1 0 0 1-1.1-1.1V6.7a1.1 1.1 0 0 1 1.1-1.1z"/><path d="M3.6 10.2h16.8"/><path d="M8.2 3.3v4.1"/><path d="M15.8 3.3v4.1"/><path d="m9.6 14.9 1.9 1.9 3.4-3.4"/></svg>
+        <h3 class="visit-ask-title">How do I book?</h3>
+        <p>Choose a suitable time through our online booking system. Appointment options, availability and fees are displayed before you confirm.</p>
+      </li>
+    </ul>
+    <div class="visit-book">
+      <p class="visit-address"><a href="https://www.google.com/maps/search/?api=1&amp;query=2+Lionel+Parade+Springfield+NSW+2250">2 Lionel Parade, Springfield NSW 2250</a></p>
+      <p class="actions"><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book online</a></p>
+    </div>
   </div>
 </section>
