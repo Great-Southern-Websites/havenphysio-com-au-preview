@@ -433,14 +433,18 @@ ul, ol { margin: 0 0 1rem; }
   .home-person { grid-template-columns: 17rem minmax(0, 1fr); gap: 3.5rem; }
 }
 
-/* ---- explore haven: the four ways on from the home page -------------------
-   The closing section of the home page. Under its heading sit the compact
-   cards What We Treat and Treatments & Technology already use, turned into
-   plain links: the orange rule across the top, a line icon in the readable
-   orange lifted from the page the card opens, the destination and a line
-   saying what is there, with the arrow at the top right. Two columns wherever
-   they read comfortably, one on the narrowest phones, and each card only as
-   tall as its three lines need. The whole card is the link. */
+/* ---- explore haven: the four ways on from a page --------------------------
+   The closing section of the home page and of every main page below it.
+   Under its heading sit the compact cards What We Treat and Treatments &
+   Technology already use, turned into plain links: the orange rule across the
+   top, a line icon in the readable orange lifted from the page the card
+   opens, the destination and a line saying what is there, with the arrow at
+   the top right. Two columns wherever they read comfortably, one on the
+   narrowest phones, and each card only as tall as its three lines need. The
+   whole card is the link.
+   The home page sets the --home-* colours on .home; the section carries the
+   same four itself so the cards read the same on the inside pages. */
+.explore { --home-ink: var(--primary); --home-ink-muted: var(--fg-muted); --home-orange: var(--accent-strong); --home-line: var(--line); }
 .explore { padding-block: clamp(2.5rem, 5vw, 3.75rem); }
 /* The invitation is the section heading, set like The Haven Approach above it.
    No text column holds it in: wherever the row is wide enough it sits on one
@@ -484,13 +488,13 @@ ul, ol { margin: 0 0 1rem; }
 .explore-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--home-ink); transition: color 0.15s; }
 .explore-short { grid-area: short; font-size: 0.88rem; line-height: 1.45; color: var(--home-ink-muted); }
 .explore-arrow { grid-area: arrow; justify-self: end; width: 1.15rem; height: 1.15rem; color: var(--home-orange); transition: transform 0.15s; }
-.home a.explore-card:hover { border-color: var(--accent); background-color: var(--bg-alt); }
+a.explore-card:hover { border-color: var(--accent); background-color: var(--bg-alt); }
 .explore-card:hover .explore-name { color: var(--home-orange); }
 .explore-card:hover .explore-arrow { transform: translateX(0.25rem); }
 .explore-card:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 2px; }
 /* The tap: the card takes the tinted field and the orange border and settles a
    hair, which a phone holds for as long as the finger is down. */
-.home a.explore-card:active { border-color: var(--accent); background-color: var(--bg-alt); transform: translateY(1px); }
+a.explore-card:active { border-color: var(--accent); background-color: var(--bg-alt); transform: translateY(1px); }
 @media (min-width: 560px) {
   .explore-card { padding: 0.85rem 0.95rem 0.95rem; grid-template-columns: minmax(0, 1fr) 1.25rem; }
   .explore-icon { width: 1.75rem; height: 1.75rem; }
@@ -498,6 +502,45 @@ ul, ol { margin: 0 0 1rem; }
   .explore-short { font-size: 0.9rem; }
   .explore-arrow { width: 1.25rem; height: 1.25rem; }
 }
+
+/* ---- ready to find us: the home page's closing contact line ---------------
+   A short band under the four cards: the address in a sentence on the left,
+   one outlined link through to Contact & Location on the right. It is held
+   tighter than a full section so the page does not open a gap before the
+   footer, and it is outlined rather than filled, so the orange Book online
+   button stays the one strong call on the page. */
+.home-contact { padding-block: clamp(1.9rem, 3.5vw, 2.6rem); }
+.home-contact-inner { display: grid; gap: 1.1rem; align-items: center; }
+@media (min-width: 740px) {
+  .home-contact-inner { grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(2rem, 4vw, 3rem); }
+}
+.home-contact h2 { font-size: 1.35rem; letter-spacing: 0; margin-bottom: 0.35rem; }
+.home-contact-text p { margin: 0; color: var(--home-ink-muted); max-width: 38rem; }
+
+/* The link wears the card's hairline and radius but not its orange top rule,
+   which keeps it a step quieter than the four cards above it. */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.1rem;
+  text-decoration: none;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: background-color 0.15s, transform 0.1s;
+}
+.home a.contact-link, .contact-link .contact-link-text { color: var(--accent-strong); }
+.contact-link-icon { flex: none; width: 1.3rem; height: 1.3rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.contact-link-arrow { flex: none; width: 1.15rem; height: 1.15rem; color: var(--accent-strong); transition: transform 0.15s; }
+.home a.contact-link:hover { background-color: var(--bg-alt); color: var(--accent-strong); }
+.contact-link:hover .contact-link-arrow { transform: translateX(0.25rem); }
+.contact-link:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 2px; }
+.home a.contact-link:active { background-color: var(--bg-alt); transform: translateY(1px); }
 
 /* ---- page layout (banner + prose) --------------------------------------- */
 .page-banner { padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 2.5rem); }

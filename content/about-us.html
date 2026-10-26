@@ -96,6 +96,10 @@ layout: default
     <p class="actions"><a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book an appointment</a></p>
   </div>
 </section>
+{! The four ways on from this page, the home page's navigation cards
+   with this page's own card left out. !}
+{#include partials/explore exclude="about-us" /}
+
 {! Browsers without the exclusive-accordion "name" attribute on <details> get the same
    one-card-at-a-time behaviour from here. Everywhere else the browser does it. !}
 <script>{|

@@ -154,6 +154,10 @@ layout: default
     </div>
   </div>
 </section>
+{! The four ways on from this page, the home page's navigation cards
+   with this page's own card left out. !}
+{#include partials/explore exclude="what-we-treat" /}
+
 {! One panel open at a time. Without this the checkboxes still open and close
    their own panel, so the page works with the script switched off. !}
 <script>{|
