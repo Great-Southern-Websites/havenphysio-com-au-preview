@@ -746,57 +746,63 @@ ul, ol { margin: 0 0 1rem; }
    Each is a numeral and a line icon in a narrow left column from 840px, a
    bold heading and a short block of text, with a hairline between one part
    and the next. The numerals and icons take the readable orange, as the
-   booking steps on the contact page do. */
-.visit-opening { padding-bottom: clamp(2rem, 5vw, 3rem); }
+   booking steps on the contact page do. The page is set tighter than the
+   rest of the site so all four parts, and the questions under them, can be
+   scanned on a phone without long runs of empty space. */
+.visit-opening { padding-block: clamp(2rem, 5vw, 3.25rem) clamp(1.25rem, 3vw, 1.75rem); }
 .visit-opening h1 { max-width: 26ch; }
-.visit-opening + .section { border-top: 0; padding-top: clamp(1.5rem, 3.5vw, 2.5rem); }
-.visit-lead { max-width: 42rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.visit-opening + .section { border-top: 0; padding-top: clamp(0.75rem, 2vw, 1.25rem); }
+.visit-lead { max-width: 42rem; margin-top: clamp(0.9rem, 2vw, 1.35rem); }
 .visit-lead p:last-child { margin-bottom: 0; }
 
+.visit-section { padding-bottom: clamp(2rem, 4vw, 2.75rem); }
 .visit-steps { list-style: none; margin: 0; padding: 0; counter-reset: visit; }
-.visit-step { counter-increment: visit; display: grid; gap: 0.9rem; padding-block: clamp(1.75rem, 3.5vw, 2.5rem); }
+.visit-step { counter-increment: visit; display: grid; gap: 0.45rem; padding-block: clamp(1.1rem, 2.2vw, 1.5rem); }
 .visit-step:first-child { padding-top: 0; }
 .visit-step:last-child { padding-bottom: 0; }
 .visit-step + .visit-step { border-top: 1px solid var(--line); }
-.visit-marker { display: flex; align-items: center; gap: 0.9rem; }
-.visit-marker::before { content: counter(visit); font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 0.9; color: var(--accent-strong); }
-.visit-icon { width: 2rem; height: 2rem; flex: none; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.section .visit-title { font-size: clamp(1.3rem, 2.4vw, 1.6rem); letter-spacing: -0.01em; margin: 0; color: var(--primary); }
-.visit-body { max-width: 44rem; font-size: clamp(1.02rem, 1.4vw, 1.08rem); }
+.visit-marker { display: flex; align-items: center; gap: 0.75rem; }
+.visit-marker::before { content: counter(visit); font-family: var(--font-display); font-weight: 700; font-size: 2.2rem; line-height: 0.9; color: var(--accent-strong); }
+.visit-icon { width: 1.6rem; height: 1.6rem; flex: none; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.section .visit-title { font-size: clamp(1.18rem, 2.1vw, 1.4rem); letter-spacing: -0.01em; margin: 0; color: var(--primary); }
+.visit-body { max-width: 44rem; }
 .visit-body p:last-child { margin-bottom: 0; }
 @media (min-width: 840px) {
-  .visit-step { grid-template-columns: 6rem minmax(0, 1fr); grid-template-areas: "marker title" "marker body"; column-gap: 2.5rem; row-gap: 0.9rem; align-items: start; }
-  .visit-marker { grid-area: marker; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-  .visit-marker::before { font-size: 3.4rem; }
+  .visit-step { grid-template-columns: 4.75rem minmax(0, 1fr); grid-template-areas: "marker title" "marker body"; column-gap: 2rem; row-gap: 0.35rem; align-items: start; }
+  .visit-marker { grid-area: marker; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .visit-marker::before { font-size: 2.8rem; }
   .visit-title { grid-area: title; }
   .visit-body { grid-area: body; }
 }
 
-/* The practical information that closes the page: the short orange rule the
+/* The practical questions that close the page: the short orange rule the
    about and treatment pages use above a closing heading, then the questions
-   themselves. Every answer is open, no cards and no panels, and each question
-   keeps the 6rem icon column the four parts above use, so one line of orange
-   icons runs down the whole page. Hairlines, not boxes, divide one question
-   from the next, on the same white field the rest of the page sits on. */
-.visit-before { background: var(--bg); }
+   as the plain <details> rows the home and about pages already open with, so
+   a tap, a click and the keyboard all work without JavaScript. Collapsed, the
+   eight questions read as one short list: an orange icon, the question and a
+   chevron that turns when the answer is showing. Hairlines, not boxes, divide
+   one question from the next, on the same white field the rest of the page
+   sits on. The row is 44px tall at its shortest, so it is a comfortable tap
+   target on a phone. */
+.visit-before { background: var(--bg); padding-block: clamp(2rem, 4vw, 2.75rem) clamp(2.25rem, 4.5vw, 3rem); }
 .visit-before h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
-.visit-intro { max-width: 42rem; color: var(--fg-muted); margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem); }
+.visit-intro { max-width: 42rem; color: var(--fg-muted); margin-bottom: clamp(1.25rem, 2.5vw, 1.6rem); }
 
-.visit-asks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.visit-ask { display: grid; gap: 0.55rem; padding-block: clamp(1.35rem, 2.8vw, 1.85rem); border-bottom: 1px solid var(--line); }
-.visit-ask-icon { width: 1.85rem; height: 1.85rem; flex: none; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.section .visit-ask-title { font-size: clamp(1.12rem, 1.9vw, 1.3rem); letter-spacing: -0.005em; margin: 0; color: var(--primary); }
-.visit-ask p { max-width: 44rem; margin: 0; }
-@media (min-width: 840px) {
-  .visit-ask { grid-template-columns: 6rem minmax(0, 1fr); grid-template-areas: "icon title" "icon body"; column-gap: 2.5rem; row-gap: 0.5rem; align-items: start; }
-  .visit-ask-icon { grid-area: icon; margin-top: 0.2rem; }
-  .visit-ask-title { grid-area: title; }
-  .visit-ask p { grid-area: body; }
-}
+.visit-faq { border-top: 1px solid var(--line); }
+.visit-faq-item { border-bottom: 1px solid var(--line); }
+.visit-faq-q { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) 1.25rem; align-items: center; column-gap: 0.9rem; padding-block: 0.8rem; min-height: 44px; cursor: pointer; list-style: none; }
+.visit-faq-q::-webkit-details-marker { display: none; }
+.visit-faq-icon { width: 1.6rem; height: 1.6rem; fill: none; stroke: var(--accent-strong); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.visit-faq-text { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.15rem); line-height: 1.3; color: var(--primary); }
+.visit-faq-chevron { justify-self: end; color: var(--accent-strong); transition: transform 0.15s; }
+.visit-faq-item[open] .visit-faq-chevron { transform: rotate(180deg); }
+.visit-faq-q:hover .visit-faq-text { color: var(--accent-strong); }
+.visit-faq-a { max-width: 46rem; padding: 0 0 1.05rem 2.5rem; }
+.visit-faq-a p { margin: 0; }
 
 /* The address and the booking button close the page, on one line where the
    width allows, the way the treatments page closes. */
-.visit-book { display: grid; gap: 1rem; align-items: center; margin-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.visit-book { display: grid; gap: 1rem; align-items: center; margin-top: clamp(1.4rem, 3vw, 2rem); }
 .visit-address { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--primary); }
 .visit-address a { color: inherit; }
 .visit-book .actions { margin: 0; }
