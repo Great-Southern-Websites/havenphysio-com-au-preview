@@ -417,13 +417,72 @@ ul, ol { margin: 0 0 1rem; }
 .home-person img { border-radius: calc(var(--radius) * 2); width: 100%; }
 .home-person h2 { margin-bottom: 0.35rem; }
 .home-person .role { font-family: var(--font-display); font-weight: 600; color: var(--home-ink-muted); margin-bottom: 1.4rem; }
-.home-person .more { display: inline-block; font-family: var(--font-display); font-weight: 700; padding-block: 0.65rem; }
-.home-person .more span { display: inline-block; transition: transform 0.15s; }
-.home-person .more:hover { color: var(--home-orange); }
-.home-person .more:hover span { transform: translateX(0.25rem); }
 @media (min-width: 900px) {
   .home-person { grid-template-columns: 17rem 1fr; gap: 3.5rem; align-items: center; }
   .home-person-photo { max-width: none; }
+}
+
+/* ---- explore haven: the four ways on from the home page -------------------
+   The closing section of the home page, so it opens with the short orange rule
+   the about, treatment and first visit pages close on. Under it the compact
+   cards What We Treat and Treatments & Technology already use, turned into
+   plain links: the orange rule across the top, a line icon in the readable
+   orange lifted from the page the card opens, the destination and a line
+   saying what is there, with the arrow at the top right. Two columns at every
+   width, 360px included, so the four stay a square block and the section stays
+   short. The whole card is the link. */
+.explore { padding-block: clamp(2.5rem, 5vw, 3.75rem); }
+.explore h2 { margin-bottom: 0.35rem; }
+.explore h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+.explore-intro { margin-bottom: clamp(1.35rem, 3vw, 1.85rem); }
+.explore-invite { color: var(--home-ink-muted); margin: 0; max-width: 22rem; }
+
+.explore-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+@media (min-width: 560px) { .explore-grid { gap: 1rem; } }
+/* From 960px the heading takes the narrow column and the four cards sit beside
+   it, the arrangement the about note and the treatments line already use. It
+   holds the cards to a size they can fill and keeps the section short. */
+@media (min-width: 960px) {
+  .explore .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 36rem); column-gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
+  .explore-intro { margin-bottom: 0; }
+  .explore-grid { gap: 1.1rem; }
+}
+
+.explore-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.15rem;
+  grid-template-areas: "icon arrow" "name name" "short short";
+  gap: 0.25rem 0.6rem;
+  align-content: start;
+  min-height: 7.5rem;
+  padding: 0.9rem 0.85rem 1rem;
+  text-decoration: none;
+  background: var(--bg-card);
+  border: 1px solid var(--home-line);
+  border-radius: var(--radius);
+  background-image: linear-gradient(to right, var(--accent) 0 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: left top;
+  transition: border-color 0.15s, background-color 0.15s, transform 0.1s;
+}
+.explore-icon { grid-area: icon; width: 1.6rem; height: 1.6rem; margin-bottom: 0.35rem; fill: none; stroke: var(--home-orange); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.explore-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--home-ink); transition: color 0.15s; }
+.explore-short { grid-area: short; font-size: 0.88rem; line-height: 1.45; color: var(--home-ink-muted); }
+.explore-arrow { grid-area: arrow; justify-self: end; width: 1.15rem; height: 1.15rem; color: var(--home-orange); transition: transform 0.15s; }
+.home a.explore-card:hover { border-color: var(--accent); background-color: var(--bg-alt); }
+.explore-card:hover .explore-name { color: var(--home-orange); }
+.explore-card:hover .explore-arrow { transform: translateX(0.25rem); }
+.explore-card:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 2px; }
+/* The tap: the card takes the tinted field and the orange border and settles a
+   hair, which a phone holds for as long as the finger is down. */
+.home a.explore-card:active { border-color: var(--accent); background-color: var(--bg-alt); transform: translateY(1px); }
+@media (min-width: 560px) {
+  .explore-card { min-height: 8rem; padding: 1rem 1rem 1.1rem; grid-template-columns: minmax(0, 1fr) 1.25rem; }
+  .explore-icon { width: 1.75rem; height: 1.75rem; }
+  .explore-name { font-size: 1.05rem; }
+  .explore-short { font-size: 0.9rem; }
+  .explore-arrow { width: 1.25rem; height: 1.25rem; }
 }
 
 /* ---- page layout (banner + prose) --------------------------------------- */
