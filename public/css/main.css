@@ -267,8 +267,12 @@ ul, ol { margin: 0 0 1rem; }
 .hero .lead + .lead { margin-top: 1rem; }
 /* Single column hero: the home page introduction, with nothing beside it.
    The headline and the leads carry their own measure, so the block keeps the
-   same left edge as every other section. */
+   same left edge as every other section. Nothing follows the leads, so the
+   hero closes on a short band of space and runs straight into The Haven
+   Approach rather than leaving a gap where buttons used to sit. */
 .hero-intro .lead { max-width: 34rem; }
+.hero { padding-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+.hero + .section { padding-top: clamp(2.25rem, 4.5vw, 3.5rem); }
 
 /* ---- home page ink ------------------------------------------------------
    The home page headings and links are Haven's dark grey and the eyebrow above
@@ -406,39 +410,47 @@ ul, ol { margin: 0 0 1rem; }
   .team-role { min-height: 2.7em; }
   .team-bio { margin-inline: 1.5rem; padding-bottom: 1.75rem; }
 }
-/* The thinking behind Haven: Phil's photograph beside his introduction.
-   The portrait keeps its own proportions and its own background, held to a
-   modest width on a phone so the orange eyebrow, the heading and the first
-   paragraph sit on screen with it. From 900px it takes a column of its own
-   beside the text. Corners are rounded a little further than the site's 4px
-   so a large photograph reads as finished rather than cropped. */
-.home-person { display: grid; gap: 1.75rem; align-items: start; }
-.home-person-photo { max-width: min(45vw, 11rem); }
+/* The thinking behind Haven: Phil's photograph and his name in one column,
+   the eyebrow, the heading and his three paragraphs in the other. The portrait
+   keeps its own proportions and its own background, held to a modest width on
+   a phone so the heading and the first paragraph sit on screen with it. From
+   720px the two take a column each, both starting at the top so no band of
+   space opens between the photograph and the text. Corners are rounded a
+   little further than the site's 4px so a large photograph reads as finished
+   rather than cropped. */
+.home-person { display: grid; gap: 1.5rem; align-items: start; }
+.home-person-photo { margin: 0; max-width: min(45vw, 11rem); }
 .home-person img { border-radius: calc(var(--radius) * 2); width: 100%; }
-.home-person h2 { margin-bottom: 0.35rem; }
-.home-person .role { font-family: var(--font-display); font-weight: 600; color: var(--home-ink-muted); margin-bottom: 1.4rem; }
-@media (min-width: 900px) {
-  .home-person { grid-template-columns: 17rem 1fr; gap: 3.5rem; align-items: center; }
+.home-person .role { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; line-height: 1.35; color: var(--home-ink-muted); margin: 0.7rem 0 0; }
+.home-person-text .label { margin-bottom: 0.7rem; }
+.home-person h2 { margin-bottom: 1rem; }
+.home-person-text p:last-child { margin-bottom: 0; }
+@media (min-width: 720px) {
+  .home-person { grid-template-columns: 14rem minmax(0, 1fr); gap: 2.5rem; }
   .home-person-photo { max-width: none; }
+}
+@media (min-width: 900px) {
+  .home-person { grid-template-columns: 17rem minmax(0, 1fr); gap: 3.5rem; }
 }
 
 /* ---- explore haven: the four ways on from the home page -------------------
-   The closing section of the home page, so it opens with the short orange rule
-   the about, treatment and first visit pages close on. Under it the compact
+   The closing section of the home page. Under its heading sit the compact
    cards What We Treat and Treatments & Technology already use, turned into
    plain links: the orange rule across the top, a line icon in the readable
    orange lifted from the page the card opens, the destination and a line
-   saying what is there, with the arrow at the top right. Two columns at every
-   width, 360px included, so the four stay a square block and the section stays
-   short. The whole card is the link. */
+   saying what is there, with the arrow at the top right. Two columns wherever
+   they read comfortably, one on the narrowest phones, and each card only as
+   tall as its three lines need. The whole card is the link. */
 .explore { padding-block: clamp(2.5rem, 5vw, 3.75rem); }
-.explore h2 { margin-bottom: 0.35rem; }
-.explore h2::before { content: ""; display: block; width: 2.5rem; height: 3px; background: var(--accent); margin-bottom: 1.15rem; }
+/* The invitation is the section heading, set like The Haven Approach above it. */
+.explore h2 { margin-bottom: 0; max-width: 20ch; }
 .explore-intro { margin-bottom: clamp(1.35rem, 3vw, 1.85rem); }
-.explore-invite { color: var(--home-ink-muted); margin: 0; max-width: 22rem; }
 
-.explore-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
-@media (min-width: 560px) { .explore-grid { gap: 1rem; } }
+/* One column on the narrowest phones, two from 420px, where the longest
+   destination still reads comfortably on one or two lines. */
+.explore-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.65rem; }
+@media (min-width: 420px) { .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 560px) { .explore-grid { gap: 0.9rem; } }
 /* From 960px the heading takes the narrow column and the four cards sit beside
    it, the arrangement the about note and the treatments line already use. It
    holds the cards to a size they can fill and keeps the section short. */
@@ -454,8 +466,7 @@ ul, ol { margin: 0 0 1rem; }
   grid-template-areas: "icon arrow" "name name" "short short";
   gap: 0.25rem 0.6rem;
   align-content: start;
-  min-height: 7.5rem;
-  padding: 0.9rem 0.85rem 1rem;
+  padding: 0.75rem 0.8rem 0.85rem;
   text-decoration: none;
   background: var(--bg-card);
   border: 1px solid var(--home-line);
@@ -466,7 +477,7 @@ ul, ol { margin: 0 0 1rem; }
   background-position: left top;
   transition: border-color 0.15s, background-color 0.15s, transform 0.1s;
 }
-.explore-icon { grid-area: icon; width: 1.6rem; height: 1.6rem; margin-bottom: 0.35rem; fill: none; stroke: var(--home-orange); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.explore-icon { grid-area: icon; width: 1.6rem; height: 1.6rem; margin-bottom: 0.2rem; fill: none; stroke: var(--home-orange); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .explore-name { grid-area: name; font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; color: var(--home-ink); transition: color 0.15s; }
 .explore-short { grid-area: short; font-size: 0.88rem; line-height: 1.45; color: var(--home-ink-muted); }
 .explore-arrow { grid-area: arrow; justify-self: end; width: 1.15rem; height: 1.15rem; color: var(--home-orange); transition: transform 0.15s; }
@@ -478,7 +489,7 @@ ul, ol { margin: 0 0 1rem; }
    hair, which a phone holds for as long as the finger is down. */
 .home a.explore-card:active { border-color: var(--accent); background-color: var(--bg-alt); transform: translateY(1px); }
 @media (min-width: 560px) {
-  .explore-card { min-height: 8rem; padding: 1rem 1rem 1.1rem; grid-template-columns: minmax(0, 1fr) 1.25rem; }
+  .explore-card { padding: 0.85rem 0.95rem 0.95rem; grid-template-columns: minmax(0, 1fr) 1.25rem; }
   .explore-icon { width: 1.75rem; height: 1.75rem; }
   .explore-name { font-size: 1.05rem; }
   .explore-short { font-size: 0.9rem; }

@@ -17,10 +17,6 @@ layout: default
     </h1>
     <p class="lead">Premium one-on-one physiotherapy for people who want answers, not guesswork.</p>
     <p class="lead">Helping relieve pain, restore movement and return to life sooner through expert assessment and targeted treatment.</p>
-    <p class="actions">
-      <a class="btn btn-accent" href="https://havenphysio.cliniko.com/bookings">Book online now</a>
-      <a class="btn btn-outline" href="tel:+61243852616">Call (02) 4385 2616</a>
-    </p>
   </div>
 </section>
 
@@ -74,13 +70,13 @@ layout: default
 
 <section class="section">
   <div class="container home-person">
-    <div class="home-person-photo">
-      <a href="{=site.url('about-us')}"><img src="{=site.url('images/phil-wulff-1000.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w, {=site.url('images/phil-wulff-1000.webp')} 1000w" sizes="(min-width: 900px) 17rem, 11rem" alt="Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" width="1000" height="1506" loading="lazy"></a>
-    </div>
-    <div>
+    <figure class="home-person-photo">
+      <a href="{=site.url('about-us')}"><img src="{=site.url('images/phil-wulff-1000.webp')}" srcset="{=site.url('images/phil-wulff-480.webp')} 480w, {=site.url('images/phil-wulff-800.webp')} 800w, {=site.url('images/phil-wulff-1000.webp')} 1000w" sizes="(min-width: 900px) 17rem, (min-width: 720px) 14rem, 11rem" alt="Phil Wulff, physiotherapist at Haven Sports and Family Physiotherapy" width="1000" height="1506" loading="lazy"></a>
+      <figcaption class="role">Phil Wulff | Physiotherapist</figcaption>
+    </figure>
+    <div class="home-person-text">
       <p class="label label-accent">The thinking behind Haven</p>
       <h2>Looking beyond the obvious.</h2>
-      <p class="role">Phil Wulff | Physiotherapist</p>
       <p class="measure">After more than 20 years in physiotherapy, I've learned that understanding why a problem exists is often more important than simply treating where it hurts.</p>
       <p class="measure">My approach combines detailed clinical assessment, fresh thinking and targeted treatment strategies, particularly when symptoms are complex, persistent or haven't responded as expected.</p>
       <p class="measure">I look beyond the obvious, question assumptions and work to identify a clearer way forward.</p>
@@ -93,8 +89,7 @@ layout: default
 <section class="section explore">
   <div class="container">
     <div class="explore-intro">
-      <h2>Explore Haven</h2>
-      <p class="explore-invite">Where would you like to go next?</p>
+      <h2>Where would you like to go next?</h2>
     </div>
     <div class="explore-grid">
       <a class="explore-card" href="{=site.url('about-us')}">
