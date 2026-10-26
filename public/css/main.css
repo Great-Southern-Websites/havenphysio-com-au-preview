@@ -442,8 +442,10 @@ ul, ol { margin: 0 0 1rem; }
    they read comfortably, one on the narrowest phones, and each card only as
    tall as its three lines need. The whole card is the link. */
 .explore { padding-block: clamp(2.5rem, 5vw, 3.75rem); }
-/* The invitation is the section heading, set like The Haven Approach above it. */
-.explore h2 { margin-bottom: 0; max-width: 20ch; }
+/* The invitation is the section heading, set like The Haven Approach above it.
+   No text column holds it in: wherever the row is wide enough it sits on one
+   line, and on a phone it wraps where the words fall. */
+.explore h2 { margin-bottom: 0; }
 .explore-intro { margin-bottom: clamp(1.35rem, 3vw, 1.85rem); }
 
 /* One column on the narrowest phones, two from 420px, where the longest
@@ -451,11 +453,12 @@ ul, ol { margin: 0 0 1rem; }
 .explore-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.65rem; }
 @media (min-width: 420px) { .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 560px) { .explore-grid { gap: 0.9rem; } }
-/* From 960px the heading takes the narrow column and the four cards sit beside
-   it, the arrangement the about note and the treatments line already use. It
-   holds the cards to a size they can fill and keeps the section short. */
-@media (min-width: 960px) {
-  .explore .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 36rem); column-gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
+/* From 1060px the heading takes its own column and the four cards sit beside
+   it, the arrangement the about note and the treatments line already use. The
+   first column is as wide as the heading on one line, the cards take the rest,
+   and below that width the heading keeps its single line above them. */
+@media (min-width: 1060px) {
+  .explore .container { display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 36rem); column-gap: clamp(2.5rem, 5vw, 4rem); align-items: center; }
   .explore-intro { margin-bottom: 0; }
   .explore-grid { gap: 1.1rem; }
 }
